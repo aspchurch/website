@@ -1,14 +1,14 @@
 # Site settings
-title: "All Saints Presbyterian Church"
-description: "A new church plant serving the coastal communities of North County San Diego"
-url: "https://munderseth.github.io"
-baseurl: "/my.website"
+title: "All Saints Presbyterian Church - Carlsbad, North Country"
+description: "Presbyterian church plant in Carlsbad, North County San Diego. Reformed worship, biblical teaching, and community fellowship in the heart of North County."
+url: "https://aspchurch.github.io"
+baseurl: "/website"
 
 # Church information
 church:
   name: "All Saints Presbyterian Church"
-  tagline: "A new church plant serving the coastal communities of North County San Diego"
-  location: "North County San Diego"
+  tagline: "Presbyterian church plant serving Carlsbad & North County"
+  location: "Carlsbad, North County San Diego"
 
 # Build settings
 markdown: kramdown
