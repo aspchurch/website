@@ -1,18 +1,17 @@
 ---
 layout: page
 title: "Leadership"
+subtitle: "Meet the pastoral team serving All Saints Presbyterian Church"
 ---
 
-# LEADERSHIP
-
-## PLANTING PASTOR – REV. M. CONNOR UNDERSETH
+## Planting Pastor – Rev. M. Connor Underseth
 
 **Email:** [connor@aspchurch.com](mailto:connor@aspchurch.com)
 
 ![Connor and his family](../assets/images/family.png)
 
-Rev. M. Connor Underseth Is A Native San Diegan Who Grew Up In Carlsbad. He Discovered Reformed Theology As A History Major In College And Has Never Looked Back. Connor Is A Graduate Of San Francisco State University (B.A. History) 2014, Westminster Seminary California (M.A. Biblical Studies) (M.A. Theological Studies) 2018, And Is Currently Working On A ThM In Historical Theology At Puritan Reformed Theological Seminary. His Research Is Focused On Ecclesiology In The Post-Reformation Era.
+Rev. M. Connor Underseth is a native San Diegan who grew up in Carlsbad. He discovered Reformed theology as a history major in college and has never looked back. Connor is a graduate of San Francisco State University (B.A. History) 2014, Westminster Seminary California (M.A. Biblical Studies) (M.A. Theological Studies) 2018, and is currently working on a ThM in Historical Theology at Puritan Reformed Theological Seminary. His research is focused on ecclesiology in the post-Reformation era.
 
-Prior To Serving At All Saints Presbyterian Church Connor Served First As The Assistant Pastor, Then Associate Pastor At New Life Presbyterian Church Of La Mesa From 2020 To 2025, He Also Served As The Stated Clerk Of The South Coast Presbytery (PCA) From 2023-2025.
+Prior to serving at All Saints Presbyterian Church, Connor served first as the Assistant Pastor, then Associate Pastor at New Life Presbyterian Church of La Mesa from 2020 to 2025. He also served as the Stated Clerk of the South Coast Presbytery (PCA) from 2023-2025.
 
-He And His Wife Danielle Have Three Young Children, And Enjoy Going To The Beach And Spending Time With Family And Friends. Connor Also Enjoys Surfing And Is An Avid Home Cook.
+He and his wife Danielle have three young children, and enjoy going to the beach and spending time with family and friends. Connor also enjoys surfing and is an avid home cook.

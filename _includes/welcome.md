@@ -1,3 +1,3 @@
-We are a <span class="welcome-highlight">new church plant</span> committed to proclaiming the Gospel of Jesus Christ and building authentic community in the beautiful coastal region of North County San Diego. Whether you're exploring faith for the first time or have been following Christ for years, <span class="welcome-highlight">you belong here</span>.
+We are a <span class="welcome-highlight">new church plant</span> committed to proclaiming the Gospel of Jesus Christ in the beautiful coastal communities of North County San Diego.
 
-Come as you are and discover how God's grace can transform your life and community.
+Whether you're exploring faith for the first time or seeking to <span class="welcome-highlight">serve Christ by serving His church</span>, you belong here. Come as you are and discover how God's grace transforms lives and community.

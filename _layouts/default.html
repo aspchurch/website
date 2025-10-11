@@ -31,11 +31,20 @@
                         <span class="church-name">{{ site.church.name }}</span>
                     </a>
                 </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
                 <ul class="nav-menu">
                     <li><a href="{{ '/leadership/' | relative_url }}">Leadership</a></li>
                     <li><a href="{{ '/what-we-believe/' | relative_url }}">What We Believe</a></li>
+                    <li><a href="{{ '/vision-and-values/' | relative_url }}">Vision & Values</a></li>
                 </ul>
             </div>
+            <div class="mobile-overlay"></div>
         </nav>
     </header>
 
@@ -45,15 +54,82 @@
 
     <footer class="site-footer">
         <div class="footer-content">
-            <div class="footer-contact">
-                <p><strong>Contact:</strong> <a href="mailto:connor@aspchurch.com">info@aspchurch.com</a></p>
-                <p><strong>Follow Us:</strong> <a href="https://www.instagram.com/allsaintspresbyterianchurch/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4 class="footer-title">Worship With Us</h4>
+                    <p class="footer-info">
+                        <strong>Sundays at 5:00 PM</strong><br>
+                        6600 Black Rail Rd<br>
+                        Carlsbad, CA 92011
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Connect</h4>
+                    <p class="footer-info">
+                        <a href="mailto:info@aspchurch.com" class="footer-link">info@aspchurch.com</a><br>
+                        <a href="https://www.instagram.com/allsaintspresbyterianchurch/" target="_blank" rel="noopener noreferrer" class="footer-link">Follow on Instagram</a>
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">About</h4>
+                    <p class="footer-info">
+                        A new Presbyterian church plant<br>
+                        serving the coastal communities<br>
+                        of North County San Diego
+                    </p>
+                </div>
             </div>
-            <p>&copy; {{ 'now' | date: '%Y' }} {{ site.church.name }}. All rights reserved.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: '%Y' }} {{ site.church.name }}. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript (if needed later) -->
-    <!-- <script src="{{ '/assets/js/main.js' | relative_url }}"></script> -->
+    <!-- Mobile Navigation JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
+
+            if (mobileMenuToggle && navMenu && mobileOverlay) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    const isActive = navMenu.classList.contains('active');
+
+                    navMenu.classList.toggle('active');
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileOverlay.classList.toggle('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', !isActive);
+
+                    // Prevent body scrolling when menu is open
+                    document.body.style.overflow = isActive ? '' : 'hidden';
+                });
+
+                // Close menu when clicking on a link
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                        mobileOverlay.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                // Close menu when clicking overlay
+                mobileOverlay.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
