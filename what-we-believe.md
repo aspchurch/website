@@ -1,24 +1,23 @@
 ---
 layout: page
 title: "What We Believe"
+subtitle: "Our biblical foundation and confessional commitments"
 ---
 
-# WHAT WE BELIEVE
+All Saints Presbyterian Church holds to the teaching of *The Westminster Confession of Faith*, *The Westminster Larger Catechism*, *The Westminster Shorter Catechism*, and *The Historic Ecumenical Creeds of the Church* (Apostles' Creed, Nicene Creed, Athanasian Creed, Chalcedon Definition). By this we are a confessional church, and below is a brief summary of our beliefs.
 
-All Saints Presbyterian Church Holds To The Teaching Of *The Westminster Confession Of Faith*, *The Westminster Larger Catechism*, *The Westminster Shorter Catechism*, And *The Historic Ecumenical Creeds Of The Church* (Apostles' Creed, Nicene Creed, Athanasian Creed, Chalcedon Definition). By This We Are A Confessional Church, And Below Is A Brief Summary Of Our Beliefs.
+## The Bible
 
-## THE BIBLE
+We believe the Bible containing the 39 books of the Old Testament and the 27 books of the New Testament to be the inspired and inerrant Word of God, the final authority for faith and practice.
 
-We Believe The Bible Containing The 39 Books Of The Old Testament And The 27 Books Of The New Testament To Be The Inspired And Inerrant Word Of God, The Final Authority For Faith And Practice.
+## God
 
-## GOD
+We believe there is one eternal God, the only true God, who exists in three persons: the Father, Son, and Holy Spirit. In the unity of the Godhead the Father is of none, neither begotten nor proceeding; the Son is eternally begotten of the Father; the Holy Spirit eternally proceeding from the Father and the Son.
 
-We Believe There Is One Eternal God, The Only True God, Who Exists In Three Persons, The Father, Son, And Holy Spirit. In The Unity Of The Godhead The Father Is Of None, Neither Begotten, Nor Proceeding, The Son Is Eternally Begotten Of The Father; The Holy Spirit Eternally Proceeding From The Father And The Son.
+## Jesus Christ
 
-## JESUS CHRIST
+We believe in Jesus Christ, the eternal Son of God and second person of the Trinity being of one substance and equal with the Father. Who in the fullness of time took upon himself man's nature with all the essential properties, yet was without sin, by the power of the Holy Spirit being conceived in the Virgin Mary, and of her substance. Thus the two natures of the Godhead and the manhood being joined together in one person, yet without confusion or conversion, Jesus Christ being truly God and truly man, and the only Mediator between God and man.
 
-We Believe In Jesus Christ, The Eternal Son Of God And Second Person Of The Trinity Being Of One Substance And Equal With The Father. Who In The Fulness Of Time Took Upon Himself Man's Nature With All The Essential Properties, Yet Was Without Sin, By The Power Of The Holy Spirit Being Conceived In The Virgin Mary, And Of Her Substance. Thus The Two Natures Of The Godhead And The Manhood Being Joined Together In One Person, Yet Without Confusion Or Conversion, Jesus Christ Being Truly God And Truly Man, And The Only Mediator Between God And Man.
+## The Holy Spirit
 
-## THE HOLY SPIRIT
-
-We Believe In The Holy Spirit, The Lord And Giver Of Life, Who Proceeds From The Father And The Son, And Is To Be Worshiped And Glorified Along With The Father And The Son. He Spoke Through The Prophets, And Works In The Life Of Every Believer Applying The Redemption Of Christ To Them.
+We believe in the Holy Spirit, the Lord and Giver of Life, who proceeds from the Father and the Son, and is to be worshiped and glorified along with the Father and the Son. He spoke through the prophets, and works in the life of every believer applying the redemption of Christ to them.

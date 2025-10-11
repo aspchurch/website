@@ -7,17 +7,40 @@ layout: default
     <p class="hero-subtitle">{{ site.church.tagline }}</p>
 
     <div class="hero-buttons">
-        <a href="{{ '/vision-and-values/' | relative_url }}" class="btn">Vision and Values</a>
+        <a href="{{ '/vision-and-values/' | relative_url }}" class="btn btn-primary">Vision and Values</a>
         <a href="{{ '/meeting-time/' | relative_url }}" class="btn">Meeting Time</a>
-        <a href="{{ '/give/' | relative_url }}" class="btn">Give</a>
+        <a href="{{ '/give/' | relative_url }}" class="btn">Support Our Ministry</a>
+    </div>
+
+    <div class="hero-cards">
+        <div class="hero-card">
+            <h3>Join Us Sundays</h3>
+            <p>Worship Service • 5:00 PM<br>
+            <span class="address-line">6600 Black Rail Rd, Carlsbad CA 92011</span></p>
+        </div>
+
+        <div class="hero-card serve-card">
+            <h3>Worship With Us</h3>
+            <p>Serve Christ by serving His church<br>
+            <em>Many opportunities to get involved</em></p>
+        </div>
     </div>
 </section>
 
-<section class="church-logo-section">
-    <div class="main-logo-container">
-        <img src="{{ '/assets/images/cross1.png' | relative_url }}" alt="{{ site.church.name }} Logo" class="church-logo">
+<section class="welcome-section">
+    <div class="welcome-logo">
+        <img src="{{ '/assets/images/cross1.png' | relative_url }}"
+             alt="All Saints Presbyterian Church Cross"
+             class="church-logo"
+             loading="lazy"
+             width="200"
+             height="200">
     </div>
 
-    <h2 class="church-title-large">All Saints</h2>
-    <h3 class="church-subtitle-large">Presbyterian Church</h3>
+    <h2 class="welcome-title">Welcome to Our Church Family</h2>
+
+    <div class="welcome-text">
+        {% capture welcome_content %}{% include welcome.md %}{% endcapture %}
+        {{ welcome_content | markdownify }}
+    </div>
 </section>

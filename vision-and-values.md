@@ -1,38 +1,37 @@
 ---
 layout: page
 title: "Vision and Values"
+subtitle: "Our mission and the principles that guide our church"
 ---
 
-# VISION AND VALUES
+## Vision
 
-## VISION
+### A Church Formed by the Gospel of Jesus Christ
 
-### A CHURCH FORMED BY THE GOSPEL OF JESUS CHRIST
+#### Biblical
 
-#### BIBLICAL
+We believe the Bible is God's inspired Word that stands as the foundation for all we do. It is the unfolding story of God's promise of Jesus Christ to save sinners, and this is the good news of the Gospel.
 
-We Believe The Bible Is God's Inspired Word That Stands As The Foundation For All We Do. It Is The Unfolding Story Of God's Promise Of Jesus Christ To Save Sinners, And This Is The Good News Of The Gospel.
+#### Confessional
 
-#### CONFESSIONAL
+We uphold the authority and sufficiency of God's Word as expressed in the Westminster Confession of Faith and Catechisms, and the historic creeds of the church which include the Apostles' Creed, Nicene Creed, and Athanasian Creed.
 
-We Uphold The Authority And Sufficiency Of God's Word As Expressed The Westminster Confession Of Faith And Catechisms, And The Historic Creeds Of The Church Which Include The Apostles' Creed, Nicene Creed, And Athanasian Creed.
+#### Sacramental
 
-#### SACRAMENTAL
+We embrace the centrality of Word and Sacrament ministry as God's promise to His church.
 
-We Embrace The Centrality Of Word And Sacrament Ministry As God's Promise To His Church.
+## Values
 
-## VALUES
+### A People Formed by the Gospel of Jesus Christ
 
-### A PEOPLE FORMED BY THE GOSPEL OF JESUS CHRIST
+#### Formation Over Functions
 
-#### FORMATION OVER FUNCTIONS
+We value Christ-centered community that is committed to nurturing spiritual growth through discipleship, authentic worship, and the lifelong journey of faith.
 
-We Value Christ-Centered Community That Is Committed To Nurturing Spiritual Growth Through Discipleship, Authentic Worship, And The Lifelong Journey Of Faith.
+#### Authentic Worship
 
-#### AUTHENTIC WORSHIP
+We value authentic worship that is grounded in the rich tradition of historic Christianity and Presbyterian liturgy that remains relevant and transformative for contemporary believers.
 
-We Value Authentic Worship That Is Grounded In The Rich Tradition Of Historic Christianity And Presbyterian Liturgy That Remains Relevant And Transformative For Contemporary Believers.
+#### Mission Driven
 
-#### MISSION DRIVEN
-
-We Strive To Be A People Committed To The Mission Jesus Gave To The Church (Matthew 28:18-20) As The Gospel Renews Us We Share The Good News With Our Neighbor.
+We strive to be a people committed to the mission Jesus gave to the church (Matthew 28:18-20). As the Gospel renews us, we share the good news with our neighbor.

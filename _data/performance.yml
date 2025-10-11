@@ -1,0 +1,105 @@
+# Performance Configuration for All Saints Presbyterian Church Website
+# =================================================================
+
+# Google Analytics (Optional)
+# To enable analytics, uncomment the lines in default.html and add your GA4 Measurement ID
+# ga4_measurement_id: "G-XXXXXXXXXX"
+
+# Performance Targets (for monitoring)
+performance_targets:
+  # Load time targets (in milliseconds)
+  load_time:
+    good: 2500
+    needs_improvement: 4000
+    poor: 4000+
+
+  # Core Web Vitals targets
+  largest_contentful_paint:
+    good: 2500
+    needs_improvement: 4000
+    poor: 4000+
+
+  first_input_delay:
+    good: 100
+    needs_improvement: 300
+    poor: 300+
+
+  cumulative_layout_shift:
+    good: 0.1
+    needs_improvement: 0.25
+    poor: 0.25+
+
+  time_to_first_byte:
+    good: 200
+    needs_improvement: 500
+    poor: 500+
+
+# Service Worker Configuration
+service_worker:
+  cache_version: "v1.2"
+  static_assets_cache: "aspchurch-static-v1.2"
+  dynamic_assets_cache: "aspchurch-dynamic-v1.2"
+
+  # Assets to cache immediately
+  critical_assets:
+    - "/"
+    - "/assets/css/style.css"
+    - "/assets/images/cross1.png"
+    - "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+
+# Image Optimization Settings
+images:
+  # WebP quality settings
+  webp_quality: 85
+
+  # Responsive breakpoints
+  breakpoints:
+    small: 400
+    medium: 800
+    large: 1200
+
+  # Lazy loading exceptions (images that should load immediately)
+  eager_loading:
+    - "cross1.png"  # Logo should load immediately
+
+# Build Optimization
+build:
+  # CSS minification
+  minify_css: true
+
+  # HTML minification
+  minify_html: true
+
+  # Gzip compression
+  enable_gzip: true
+
+  # Source maps (for debugging)
+  generate_source_maps: false
+
+# Monitoring and Analytics
+monitoring:
+  # Console logging for development
+  console_logging: true
+
+  # Performance API usage
+  use_performance_api: true
+
+  # Core Web Vitals tracking
+  track_core_web_vitals: true
+
+  # Custom performance events
+  custom_events:
+    - hero_paint_complete
+    - navigation_interactive
+    - fonts_loaded
+
+# Third-party Integrations (Optional)
+integrations:
+  # Google PageSpeed Insights
+  pagespeed_insights: true
+
+  # Web Vitals Extension
+  web_vitals_extension: true
+
+  # Lighthouse CI (for continuous monitoring)
+  lighthouse_ci: false

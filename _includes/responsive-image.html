@@ -1,0 +1,27 @@
+<!--
+Responsive Image Component for All Saints Presbyterian Church
+Usage: {% include responsive-image.html src="cross1.png" alt="Church Logo" sizes="(max-width: 400px) 100vw, 40px" %}
+-->
+{% assign base_name = include.src | split: '.' | first %}
+{% assign extension = include.src | split: '.' | last %}
+{% assign loading = include.loading | default: "lazy" %}
+{% assign sizes = include.sizes | default: "100vw" %}
+
+<picture>
+    <!-- WebP format for modern browsers -->
+    <source
+        srcset="{{ '/assets/images/optimized/' | append: base_name | append: '-400.webp' | relative_url }} 400w,
+                {{ '/assets/images/optimized/' | append: base_name | append: '-800.webp' | relative_url }} 800w,
+                {{ '/assets/images/optimized/' | append: base_name | append: '-1200.webp' | relative_url }} 1200w"
+        sizes="{{ sizes }}"
+        type="image/webp">
+
+    <!-- Fallback to original format -->
+    <img src="{{ '/assets/images/' | append: include.src | relative_url }}"
+         alt="{{ include.alt }}"
+         loading="{{ loading }}"
+         {% if include.width %}width="{{ include.width }}"{% endif %}
+         {% if include.height %}height="{{ include.height }}"{% endif %}
+         {% if include.class %}class="{{ include.class }}"{% endif %}
+         {% if include.style %}style="{{ include.style }}"{% endif %}>
+</picture>
