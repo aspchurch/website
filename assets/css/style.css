@@ -1,3 +1,25 @@
+/* CSS Custom Properties (Variables) */
+:root {
+    /* Primary Colors */
+    --color-primary: #1a365d;
+    --color-primary-light: #4299e1;
+
+    /* Secondary Colors */
+    --color-accent: #f6ad55;
+    --color-cream: #fefcbf;
+
+    /* Neutrals */
+    --color-text: #2d3748;
+    --color-text-light: #718096;
+    --color-text-muted: #a0aec0;
+    --color-background: #ffffff;
+    --color-background-alt: #edf2f7;
+    --color-border: #e2e8f0;
+
+    /* Legacy colors for gradual transition */
+    --color-old-green: #6b8e5a;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -5,18 +27,63 @@
     box-sizing: border-box;
 }
 
+/* Focus styles for accessibility */
+*:focus {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 2px;
+}
+
+/* Links */
+a {
+    color: var(--color-primary-light);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fafafa;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-text);
+    background-color: var(--color-background-alt);
+}
+
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 3rem; }    /* 48px */
+h2 { font-size: 2rem; }    /* 32px */
+h3 { font-size: 1.5rem; }  /* 24px */
+h4 { font-size: 1.25rem; } /* 20px */
+h5 { font-size: 1.125rem; } /* 18px */
+h6 { font-size: 1rem; }    /* 16px */
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+small {
+    font-size: 0.875rem; /* 14px */
+    color: var(--color-text-light);
 }
 
 /* Header and Navigation */
 .site-header {
-    background-color: #fff;
-    border-bottom: 1px solid #e1e1e1;
-    padding: 1rem 0;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -36,15 +103,15 @@ body {
 }
 
 .logo {
-    height: 50px;
-    margin-right: 1rem;
+    height: 40px;
+    margin-right: 0.75rem;
+    object-fit: contain;
 }
 
 .church-name {
     font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .nav-menu {
@@ -55,15 +122,14 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
+    color: var(--color-text);
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.25px;
     transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-    color: #6b8e5a;
+    color: var(--color-primary-light);
 }
 
 /* Main Content */
@@ -74,94 +140,171 @@ body {
 /* Homepage Hero Section */
 .hero-section {
     text-align: center;
-    padding: 4rem 2rem;
-    background-color: #fff;
+    padding: 6rem 2rem 5rem 2rem;
+    background: linear-gradient(135deg, #1a365d 0%, #4299e1 50%, #90cdf4 100%);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(180deg, transparent 0%, rgba(237, 242, 247, 0.3) 70%, #edf2f7 100%);
 }
 
 .hero-title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #333;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
 }
 
 .btn {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     text-decoration: none;
-    border: 2px solid #333;
-    background-color: transparent;
-    color: #333;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .btn:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Church Logo Section */
-.church-logo-section {
-    padding: 3rem 2rem;
-    background-color: #f8f8f8;
+.btn-primary {
+    background-color: rgba(246, 173, 85, 0.9);
+    border-color: #f6ad55;
+    color: white;
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    background-color: #f6ad55;
+    border-color: #f6ad55;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(246, 173, 85, 0.4);
+}
+
+/* Service Times Callout */
+.service-callout {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
     text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.main-logo-container {
+.service-callout h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.service-callout p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 5rem 2rem;
+    background-color: var(--color-background);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome-logo {
+    width: 80px;
+    height: 80px;
     margin: 0 auto 2rem auto;
-    width: 300px;
-    height: 300px;
+    opacity: 0.6;
 }
 
 .church-logo {
     width: 100%;
     height: 100%;
-    max-width: 300px;
+    max-width: 200px;
+    object-fit: contain;
 }
 
-.church-title-large {
-    margin-top: 2rem;
-    font-size: 4rem;
-    font-weight: bold;
-    color: #6b8e5a;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
 }
 
-.church-subtitle-large {
-    font-size: 2rem;
-    color: #6b8e5a;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 0.5rem;
+.welcome-text {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.welcome-text p {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-highlight {
+    color: var(--color-primary);
+    font-weight: 500;
 }
 
 /* Page Content */
 .page-content {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
 }
 
 .page-header {
@@ -171,9 +314,8 @@ body {
 
 .page-header h1 {
     font-size: 2.5rem;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
 }
 
 .page-body {
@@ -183,9 +325,8 @@ body {
 
 .page-body h2 {
     margin: 2rem 0 1rem 0;
-    color: #6b8e5a;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--color-primary);
+    letter-spacing: 0.25px;
 }
 
 .page-body p {
@@ -194,11 +335,11 @@ body {
 
 /* Footer */
 .site-footer {
-    background-color: #6b8e5a;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-background);
     text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
 }
 
 /* Responsive Design */
@@ -214,11 +355,13 @@ body {
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.25rem;
+        line-height: 1.2;
     }
 
     .church-title-large {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        line-height: 1.2;
     }
 
     .church-subtitle-large {
@@ -228,5 +371,40 @@ body {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+    }
+
+    .main-logo-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-section {
+        padding: 4rem 1.5rem 3rem 1.5rem;
+    }
+
+    .service-callout {
+        margin-top: 1.5rem;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .service-callout h3 {
+        font-size: 1rem;
+    }
+
+    .service-callout p {
+        font-size: 0.9rem;
+    }
+
+    .welcome-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .welcome-text {
+        font-size: 1.1rem;
     }
 }
