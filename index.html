@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<section class="hero-section">
+    <h1 class="hero-title">{{ site.church.name }}</h1>
+    <p class="hero-subtitle">{{ site.church.tagline }}</p>
+
+    <div class="hero-buttons">
+        <a href="{{ '/vision-and-values/' | relative_url }}" class="btn">Vision and Values</a>
+        <a href="{{ '/meeting-time/' | relative_url }}" class="btn">Meeting Time</a>
+        <a href="{{ '/give/' | relative_url }}" class="btn">Give</a>
+    </div>
+</section>
+
+<section class="church-logo-section">
+    <div class="main-logo-container">
+        <img src="{{ '/assets/images/cross1.png' | relative_url }}" alt="{{ site.church.name }} Logo" class="church-logo">
+    </div>
+
+    <h2 class="church-title-large">All Saints</h2>
+    <h3 class="church-subtitle-large">Presbyterian Church</h3>
+</section>

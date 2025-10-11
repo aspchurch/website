@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+    <!-- Favicon placeholder -->
+    <!-- <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}"> -->
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="{{ '/' | relative_url }}">
+                        <img src="{{ '/assets/images/cross1.png' | relative_url }}" alt="{{ site.church.name }}" class="logo">
+                        <span class="church-name">{{ site.church.name }}</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="{{ '/leadership/' | relative_url }}">Leadership</a></li>
+                    <li><a href="{{ '/what-we-believe/' | relative_url }}">What We Believe</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; {{ 'now' | date: '%Y' }} {{ site.church.name }}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript (if needed later) -->
+    <!-- <script src="{{ '/assets/js/main.js' | relative_url }}"></script> -->
+</body>
+</html>

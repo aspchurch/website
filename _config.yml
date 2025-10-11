@@ -1,0 +1,51 @@
+# Site settings
+title: "All Saints Presbyterian Church"
+description: "A new church plant serving the coastal communities of North County San Diego"
+url: "https://munderseth.github.io"
+baseurl: "/my.website"
+
+# Church information
+church:
+  name: "All Saints Presbyterian Church"
+  tagline: "A new church plant serving the coastal communities of North County San Diego"
+  location: "North County San Diego"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# GitHub Pages configuration
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude files from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+
+# Collections (for future content organization)
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
