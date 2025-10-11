@@ -1,23 +1,31 @@
 // Service Worker for All Saints Presbyterian Church
 // Provides offline functionality and caching for better performance
 
-const CACHE_NAME = 'aspchurch-v1.2';
-const STATIC_CACHE_NAME = 'aspchurch-static-v1.2';
-const DYNAMIC_CACHE_NAME = 'aspchurch-dynamic-v1.2';
+// Development mode detection (less aggressive caching)
+const IS_DEV = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.port;
+const CACHE_VERSION = IS_DEV ? Date.now().toString() : 'v1.3';
+
+const CACHE_NAME = `aspchurch-${CACHE_VERSION}`;
+const STATIC_CACHE_NAME = `aspchurch-static-${CACHE_VERSION}`;
+const DYNAMIC_CACHE_NAME = `aspchurch-dynamic-${CACHE_VERSION}`;
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
-    '/my.website/',
-    '/my.website/index.html',
-    '/my.website/assets/css/style.css',
-    '/my.website/assets/images/cross1.png',
-    '/my.website/leadership/',
-    '/my.website/what-we-believe/',
-    '/my.website/vision-and-values/',
-    '/my.website/meeting-time/',
-    '/my.website/give/',
+    '/website/',
+    '/website/index.html',
+    '/website/assets/css/style.css',
+    '/website/assets/images/cross1.png',
+    '/website/about/',
+    '/website/leadership/',
+    '/website/what-we-believe/',
+    '/website/vision-and-values/',
+    '/website/meeting-time/',
+    '/website/give/',
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap'
 ];
+
+// Cache duration (shorter for development)
+const CACHE_MAX_AGE = IS_DEV ? 5 * 60 * 1000 : 24 * 60 * 60 * 1000; // 5 min dev, 24 hours prod
 
 // Install event - cache static assets
 self.addEventListener('install', (event) => {
@@ -70,6 +78,12 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
             .then((cachedResponse) => {
+                // In development mode, always check network first for HTML/CSS
+                if (IS_DEV && (event.request.headers.get('accept').includes('text/html') ||
+                              event.request.url.includes('.css'))) {
+                    return fetch(event.request).catch(() => cachedResponse || new Response('Offline'));
+                }
+
                 // Return cached version if available
                 if (cachedResponse) {
                     // Update cache in background for HTML pages
@@ -77,9 +91,7 @@ self.addEventListener('fetch', (event) => {
                         event.waitUntil(updateCache(event.request));
                     }
                     return cachedResponse;
-                }
-
-                // Fetch from network and cache
+                }                // Fetch from network and cache
                 return fetch(event.request)
                     .then((networkResponse) => {
                         // Only cache successful responses
@@ -104,7 +116,7 @@ self.addEventListener('fetch', (event) => {
                     .catch(() => {
                         // Offline fallback for HTML pages
                         if (event.request.headers.get('accept').includes('text/html')) {
-                            return caches.match('/my.website/');
+                            return caches.match('/website/');
                         }
 
                         // Return offline message for other resources

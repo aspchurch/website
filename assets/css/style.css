@@ -381,6 +381,20 @@ small {
     font-weight: 500;
 }
 
+.welcome-cta {
+    margin-top: 2rem;
+}
+
+.welcome-cta .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
 /* Page Hero */
 .page-hero {
     background: linear-gradient(135deg, #1a365d 0%, #4299e1 100%);
