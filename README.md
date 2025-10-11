@@ -20,11 +20,21 @@ A static Jekyll website for All Saints Presbyterian Church - a new church plant 
 
 2. **Run locally:**
    ```bash
-   bundle exec jekyll serve --livereload
+   make serve
    ```
+
+   *Alternative: `bundle exec jekyll serve --livereload`*
 
 3. **View site:**
    Open `http://localhost:4000/my.website/`
+
+### Available Commands
+
+- `make serve` - Run the site locally with live reload
+- `make build` - Build the site for production
+- `make install` - Install Ruby dependencies
+- `make clean` - Clean build artifacts
+- `make setup` - Install dependencies and run the site
 
 ### Project Structure
 
@@ -35,7 +45,8 @@ A static Jekyll website for All Saints Presbyterian Church - a new church plant 
 │   ├── css/            # Stylesheets
 │   └── images/         # Logo and images
 ├── *.md                # Content pages
-└── index.html          # Homepage
+├── index.html          # Homepage
+└── Makefile            # Build commands
 ```
 
 ### Images Directory
