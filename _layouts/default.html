@@ -144,9 +144,10 @@
                 </button>
 
                 <ul class="nav-menu">
+                    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
                     <li><a href="{{ '/leadership/' | relative_url }}">Leadership</a></li>
-                    <li><a href="{{ '/what-we-believe/' | relative_url }}">What We Believe</a></li>
-                    <li><a href="{{ '/vision-and-values/' | relative_url }}">Vision & Values</a></li>
+                    <li><a href="{{ '/what-we-believe/' | relative_url }}">Beliefs</a></li>
+                    <li><a href="{{ '/give/' | relative_url }}">Give</a></li>
                 </ul>
             </div>
             <div class="mobile-overlay"></div>
@@ -165,7 +166,8 @@
                     <p class="footer-info">
                         <strong>Sundays at 5:00 PM</strong><br>
                         6600 Black Rail Rd<br>
-                        Carlsbad, CA 92011
+                        Carlsbad, CA 92011<br>
+                        <a href="{{ '/meeting-time/' | relative_url }}" class="footer-link">Plan Your Visit</a>
                     </p>
                 </div>
 
@@ -178,11 +180,12 @@
                 </div>
 
                 <div class="footer-section">
-                    <h4 class="footer-title">About</h4>
+                    <h4 class="footer-title">Learn More</h4>
                     <p class="footer-info">
-                        A new Presbyterian church plant<br>
-                        serving the coastal communities<br>
-                        of North County San Diego
+                        <a href="{{ '/about/' | relative_url }}" class="footer-link">About Our Church</a><br>
+                        <a href="{{ '/leadership/' | relative_url }}" class="footer-link">Meet Our Pastor</a><br>
+                        <a href="{{ '/what-we-believe/' | relative_url }}" class="footer-link">Our Beliefs</a><br>
+                        <a href="{{ '/give/' | relative_url }}" class="footer-link">Support Our Ministry</a>
                     </p>
                 </div>
             </div>
@@ -198,23 +201,9 @@
         // Register service worker for offline functionality and caching
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}')
+                navigator.serviceWorker.register('/website/sw.js')
                     .then(function(registration) {
                         console.log('ServiceWorker registration successful');
-
-                        // Update service worker when new version is available
-                        registration.addEventListener('updatefound', function() {
-                            const newWorker = registration.installing;
-                            newWorker.addEventListener('statechange', function() {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    // New content available, show update notification
-                                    if (confirm('New content is available! Click OK to refresh.')) {
-                                        newWorker.postMessage({ type: 'SKIP_WAITING' });
-                                        window.location.reload();
-                                    }
-                                }
-                            });
-                        });
                     })
                     .catch(function(error) {
                         console.log('ServiceWorker registration failed: ', error);

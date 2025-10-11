@@ -7,9 +7,8 @@ layout: default
     <p class="hero-subtitle">{{ site.church.tagline }}</p>
 
     <div class="hero-buttons">
-        <a href="{{ '/vision-and-values/' | relative_url }}" class="btn btn-primary">Vision and Values</a>
-        <a href="{{ '/meeting-time/' | relative_url }}" class="btn">Meeting Time</a>
-        <a href="{{ '/give/' | relative_url }}" class="btn">Support Our Ministry</a>
+        <a href="{{ '/meeting-time/' | relative_url }}" class="btn btn-primary">Plan Your Visit</a>
+        <a href="{{ '/vision-and-values/' | relative_url }}" class="btn">Vision & Values</a>
     </div>
 
     <div class="hero-cards">
@@ -21,8 +20,8 @@ layout: default
 
         <div class="hero-card serve-card">
             <h3>Worship With Us</h3>
-            <p>Serve Christ by serving His church<br>
-            <em>Many opportunities to get involved</em></p>
+            <em>Serve Christ by serving His church</em>
+            <p>Many opportunities to get involved</p>
         </div>
     </div>
 </section>
@@ -40,7 +39,10 @@ layout: default
     <h2 class="welcome-title">Welcome to Our Church Family</h2>
 
     <div class="welcome-text">
-        {% capture welcome_content %}{% include welcome.md %}{% endcapture %}
-        {{ welcome_content | markdownify }}
+        <p>We are a new church plant committed to proclaiming the Gospel of Jesus Christ in North County San Diego. Come as you are and discover how God's grace transforms lives and community.</p>
+
+        <div class="welcome-cta">
+            <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">Learn More About Us</a>
+        </div>
     </div>
 </section>
