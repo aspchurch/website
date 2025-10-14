@@ -1,19 +1,19 @@
 /* CSS Custom Properties (Variables) */
 :root {
-    /* Primary Colors */
-    --color-primary: #2f4f2f;
-    --color-primary-light: #456745;
+    /* Primary Colors - Darker olive theme */
+    --color-primary: #1a2e1a;
+    --color-primary-light: #2d4a2d;
 
     /* Secondary Colors */
-    --color-accent: #1b4332;
+    --color-accent: #0f1f0f;
     --color-cream: #f7fafc;
 
     /* Neutrals */
-    --color-text: #2f4f2f;
-    --color-text-light: #456745;
-    --color-text-muted: #718096;
+    --color-text: #1a2e1a;
+    --color-text-light: #2d4a2d;
+    --color-text-muted: #5a6b5a;
     --color-background: #ffffff;
-    --color-background-alt: #f1f3f4;
+    --color-background-alt: #f8f9fa;
     --color-border: #d1d5db;
 
     /* Legacy colors for gradual transition */
@@ -44,7 +44,7 @@ a:hover {
 }
 
 body {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
@@ -54,19 +54,20 @@ body {
 
 /* Typography Scale */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: 'Playfair Display', 'Georgia', serif;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.2;
     color: var(--color-primary);
     margin-bottom: 0.5em;
+    letter-spacing: 0.02em;
 }
 
-h1 { font-size: 3rem; }    /* 48px */
-h2 { font-size: 2rem; }    /* 32px */
-h3 { font-size: 1.5rem; }  /* 24px */
-h4 { font-size: 1.25rem; } /* 20px */
-h5 { font-size: 1.125rem; } /* 18px */
-h6 { font-size: 1rem; }    /* 16px */
+h1 { font-size: 3.5rem; }    /* 56px */
+h2 { font-size: 2.5rem; }    /* 40px */
+h3 { font-size: 1.8rem; }  /* 29px */
+h4 { font-size: 1.4rem; } /* 22px */
+h5 { font-size: 1.2rem; } /* 19px */
+h6 { font-size: 1.1rem; }    /* 18px */
 
 p {
     margin-bottom: 1rem;
@@ -81,9 +82,9 @@ small {
 /* Header and Navigation */
 .site-header {
     background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
-    padding: 1.5rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid var(--color-primary);
+    padding: 2rem 0;
+    box-shadow: 0 4px 8px rgba(26, 46, 26, 0.1);
 }
 
 .nav-container {
@@ -109,9 +110,11 @@ small {
 }
 
 .church-name {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
     letter-spacing: 0.5px;
+    color: var(--color-primary);
 }
 
 .nav-menu {
@@ -123,8 +126,9 @@ small {
 .nav-menu a {
     text-decoration: none;
     color: var(--color-text);
-    font-weight: 500;
-    letter-spacing: 0.25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
@@ -221,17 +225,20 @@ small {
 
 .btn {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem;
     text-decoration: none;
-    border: 2px solid transparent;
+    border: 2px solid var(--color-primary);
     background-color: transparent;
     color: var(--color-primary);
+    font-family: 'Georgia', serif;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 0;
     transition: all 0.3s ease;
     backdrop-filter: none;
-    min-width: 180px;
+    min-width: 200px;
+    font-size: 0.9rem;
 }
 
 .btn:hover {
@@ -333,18 +340,18 @@ small {
 
 /* Welcome Section */
 .welcome-section {
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
     background-color: var(--color-background);
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .welcome-logo {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 2rem auto;
-    opacity: 0.6;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 3rem auto;
+    opacity: 0.9;
 }
 
 .church-logo {
@@ -356,20 +363,25 @@ small {
 }
 
 .welcome-title {
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 3rem;
+    font-weight: 700;
     color: var(--color-primary);
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
 }
 
 .welcome-text {
-    font-size: 1.2rem;
-    color: var(--color-text-light);
+    font-size: 1.1rem;
+    color: var(--color-text);
     line-height: 1.8;
-    margin-bottom: 2rem;
-    font-family: 'Inter', sans-serif;
+    margin-bottom: 2.5rem;
+    font-family: 'Georgia', serif;
     font-weight: 400;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .welcome-text p {
