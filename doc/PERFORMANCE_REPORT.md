@@ -84,7 +84,7 @@ Your church website has been enhanced with comprehensive Phase 2 performance opt
 
 ### Responsive Image Component
 ```html
-{% include responsive-image.html src="cross1.png" alt="Church Logo" %}
+{% include responsive-image.html src="AS-Mark_Olive.png" alt="Church Logo" %}
 ```
 - Modern `<picture>` element with WebP support
 - Automatic fallbacks for older browsers

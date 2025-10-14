@@ -90,9 +90,57 @@ This site automatically deploys to GitHub Pages via GitHub Actions:
   - `meeting-time.md` - Service times
   - `give.md` - Giving information
 
+## Caching Control
+
+The site includes a service worker for offline functionality and performance caching. During development, caching is disabled to ensure you see the latest changes immediately.
+
+### To Disable Caching (Development Mode - Currently Active)
+
+Caching is currently **DISABLED** for development. The service worker registration is commented out in `_layouts/default.html`.
+
+**What's disabled:**
+- Service worker caching (commented out in `_layouts/default.html`)
+- Incremental builds (`incremental: false` in `_config.yml`)
+- Build regeneration forced (`regenerate: true` in `_config.yml`)
+
+### To Enable Caching (Production Mode)
+
+When ready for production deployment:
+
+1. **Enable service worker in `_layouts/default.html`:**
+   - Remove the comment tags (`<!--` and `-->`) around the service worker registration script
+   - The script should be active (lines ~200-215)
+
+2. **Optional: Enable incremental builds in `_config.yml`:**
+   ```yaml
+   # Change these for faster builds (optional)
+   incremental: true
+   regenerate: false
+   ```
+
+3. **Update cache version in `sw.js`:**
+   - Change `CACHE_VERSION = IS_DEV ? Date.now().toString() : 'v1.3';`
+   - Increment the version (e.g., `'v1.4'`) for each major deployment
+
+### Hard Refresh During Development
+
+If you still see cached content:
+
+**Desktop:**
+- **Chrome/Edge:** `Ctrl+Shift+R` (Linux/Windows) or `Cmd+Shift+R` (Mac)
+- **Firefox:** `Ctrl+F5` (Linux/Windows) or `Cmd+Shift+R` (Mac)
+- **Safari:** `Cmd+Option+R`
+
+**Mobile:**
+- **iPhone (Safari):** Hold refresh button → "Reload Without Content Blockers"
+- **iPhone (Chrome):** Menu (⋯) → Settings → Privacy → Clear Browsing Data
+- **Android (Chrome):** Menu (⋯) → Settings → Privacy and Security → Clear browsing data
+- **Android (Firefox):** Menu (⋯) → Settings → Delete browsing data
+
 ## Technical Notes
 
 - Built with Jekyll 4.2
 - Mobile-responsive design
 - Live reload for development
 - Optimized for GitHub Pages hosting
+- Service worker provides offline functionality when enabled
