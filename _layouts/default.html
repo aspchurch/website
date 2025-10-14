@@ -83,7 +83,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="{{ '/assets/images/cross1.png' | relative_url }}" as="image" type="image/png">
+    <link rel="preload" href="{{ '/assets/images/AS-Mark_Olive.png' | relative_url }}" as="image" type="image/png">
     <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style">
 
     <!-- Optimized Google Fonts Loading -->
@@ -127,7 +127,7 @@
             <div class="nav-container">
                 <div class="nav-logo">
                     <a href="{{ '/' | relative_url }}">
-                        <img src="{{ '/assets/images/cross1.png' | relative_url }}"
+                        <img src="{{ '/assets/images/AS-Mark_Olive.png' | relative_url }}"
                              alt="{{ site.church.name }} Logo"
                              class="logo"
                              width="40"
@@ -197,6 +197,7 @@
     </footer>
 
     <!-- Service Worker Registration -->
+    <!-- DISABLED FOR DEVELOPMENT - Uncomment for production caching
     <script>
         // Register service worker for offline functionality and caching
         if ('serviceWorker' in navigator) {
@@ -211,6 +212,7 @@
             });
         }
     </script>
+    -->
 
     <!-- Performance Monitoring & Core Web Vitals -->
     <script>

@@ -352,6 +352,7 @@ small {
     height: 100%;
     max-width: 200px;
     object-fit: contain;
+    filter: brightness(0.4) contrast(1.3);
 }
 
 .welcome-title {

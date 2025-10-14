@@ -33,6 +33,10 @@ collections:
     output: true
     permalink: /:name/
 
+# Development settings to disable caching
+incremental: false
+regenerate: true
+
 # Default layouts
 defaults:
   - scope:

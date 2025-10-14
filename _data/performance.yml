@@ -44,7 +44,7 @@ service_worker:
   critical_assets:
     - "/"
     - "/assets/css/style.css"
-    - "/assets/images/cross1.png"
+    - "/assets/images/AS-Mark_Olive.png"
     - "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
 
 # Image Optimization Settings
@@ -60,7 +60,7 @@ images:
 
   # Lazy loading exceptions (images that should load immediately)
   eager_loading:
-    - "cross1.png"  # Logo should load immediately
+    - "AS-Mark_Olive.png"  # Logo should load immediately
 
 # Build Optimization
 build:
