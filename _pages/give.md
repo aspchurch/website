@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Give"
+permalink: /give/
 ---
 
 # Giving and Support

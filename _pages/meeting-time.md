@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Meeting Time"
+permalink: /meeting-time/
 ---
 
 # SUNDAY SERVICE

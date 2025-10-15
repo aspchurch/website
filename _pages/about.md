@@ -3,6 +3,7 @@ layout: page
 title: "About Us"
 subtitle: "Welcome to All Saints Presbyterian Church"
 description: "Learn about our church plant in Carlsbad, North County San Diego. Reformed worship, biblical teaching, and community fellowship."
+permalink: /about/
 ---
 
 ## Welcome to Our Church Family

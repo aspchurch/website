@@ -1,7 +1,8 @@
 ---
 layout: page
 title: "Leadership"
-subtitle: "Meet the pastoral team serving All Saints Presbyterian Church"
+subtitle: "Meet our pastoral leadership"
+permalink: /leadership/
 ---
 
 ## Planting Pastor – Rev. M. Connor Underseth

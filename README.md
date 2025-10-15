@@ -21,21 +21,22 @@ bundle exec jekyll serve --livereload
 
 ### Key Pages & Features
 - `index.html` - Homepage with welcome message
-- `what-we-believe.md` - Church doctrine with responsive 3-column layout
-- `about.md` - Church information and history
-- `leadership.md` - Staff and leadership team
-- `meeting-time.md` - Service times and location
-- `give.md` - Donation and giving information
-- `vision-and-values.md` - Church mission and values
+- `_pages/what-we-believe.md` - Church doctrine with responsive 3-column layout (YAML-driven)
+- `_pages/about.md` - Church information and history
+- `_pages/leadership.md` - Staff and leadership team
+- `_pages/meeting-time.md` - Service times and location
+- `_pages/give.md` - Donation and giving information
+- `_pages/vision-and-values.md` - Church mission and values
 
 ### File Structure
 ```
-├── _layouts/           # Jekyll page templates
-├── _includes/          # Reusable components
+├── _pages/            # All content pages (organized)
+├── _data/             # YAML data files (beliefs content)
+├── _layouts/          # Jekyll page templates
 ├── _sass/             # Modular Sass stylesheets
 ├── assets/css/        # Main SCSS file
 ├── doc/               # Documentation
-└── *.md              # Content pages
+└── index.html         # Homepage
 ```
 
 ## 🎯 Content Management
@@ -45,7 +46,8 @@ bundle exec jekyll serve --livereload
 **For Developers:** See [Development Guide](doc/DEVELOPMENT.md) for technical details.
 
 ### Quick Guidelines
-- Edit `.md` files for page content
+- Edit files in `_pages/` directory for page content
+- Edit `_data/beliefs.yml` for church doctrine content
 - Maintain YAML front matter (the `---` sections)
 - Use markdown formatting
 - Avoid `_site/`, `_sass/`, `_layouts/` directories
@@ -58,11 +60,18 @@ bundle exec jekyll serve --livereload
 - Cleaned unused files and improved structure
 - Comprehensive documentation created
 
-### 🔄 Next - Phase 2 Planning
-- Extract content to YAML data files (`_data/beliefs.yml`)
-- Create reusable Jekyll includes/components
-- Advanced Sass organization with variables/mixins
-- Content templates and validation
+### ✅ Phase 2 Complete - Data & Components
+- ✅ Extracted beliefs content to YAML data files (`_data/beliefs.yml`)
+- ✅ Data-driven beliefs page with template-based rendering
+- ✅ Organized pages into `_pages/` directory (Jekyll collections)
+- ✅ Removed unused files and cleaned project structure
+- ✅ Maintained working CSS architecture and responsive design
+
+### 🧹 Recent Cleanup
+- ✅ Moved all content pages to `_pages/` directory
+- ✅ Removed unused `_includes/` files (welcome.md, responsive-image.html)
+- ✅ Consolidated beliefs architecture from 3 files to 2
+- ✅ Clean, organized project structure with no unused files
 
 ## 💻 Development
 
@@ -73,10 +82,11 @@ bundle exec jekyll build               # Production build
 bundle exec jekyll clean               # Clean cache
 ```
 
-### Sass Architecture
-- **Main**: `assets/css/style.scss` (imports partials)
-- **Partials**: `_sass/_beliefs.scss` (component styles)
-- **Future**: Variables, mixins, and better organization
+### Current Architecture
+- **Main Stylesheet**: `assets/css/style.scss` with CSS custom properties
+- **Beliefs Styles**: `_sass/_beliefs.scss` (responsive 3-column grid)
+- **Data-Driven Content**: `_data/beliefs.yml` + template rendering
+- **Organized Pages**: Jekyll collections in `_pages/` directory
 
 ### Deployment
 - **Auto-deploy**: Push to `main` branch
