@@ -15,6 +15,47 @@ bundle exec jekyll serve --livereload
 # Visit http://localhost:4000
 ```
 
+## ⚙️ Performance Configuration
+
+**IMPORTANT:** Control production optimizations via `_config.yml` settings:
+
+```yaml
+# Performance & Optimization Settings
+performance:
+  enable_service_worker: false     # Enables offline caching
+  enable_css_cache_busting: false  # Adds timestamps to CSS files
+  enable_image_optimization: false # Use optimized WebP images
+  enable_preload_optimization: true # Keep critical resource preloading
+```
+
+### 🔧 Development vs Production Setup
+
+#### **Development Mode (Current):**
+```yaml
+performance:
+  enable_service_worker: false
+  enable_css_cache_busting: false
+  enable_image_optimization: false
+```
+**Benefits:** Clean loading, no caching conflicts, easier debugging
+
+#### **Production Mode (For Launch):**
+```yaml
+performance:
+  enable_service_worker: true
+  enable_css_cache_busting: true
+  enable_image_optimization: true
+```
+**Benefits:** Faster loading, offline support, optimized images
+
+#### **How to Switch:**
+1. Edit `_config.yml`
+2. Change `false` → `true` for desired optimizations
+3. Restart Jekyll: `bundle exec jekyll serve`
+4. For image optimization, also run: `./optimize-images.sh`
+
+---
+
 ## 📋 Project Overview
 
 **Jekyll 4.2** static site with **responsive design**, **Sass/SCSS** styling, and **GitHub Pages** deployment.
@@ -27,6 +68,13 @@ bundle exec jekyll serve --livereload
 - `_pages/meeting-time.md` - Service times and location
 - `_pages/give.md` - Donation and giving information
 - `_pages/vision-and-values.md` - Church mission and values
+
+### Performance Features (Configurable)
+- **Service Worker** - Offline caching and faster repeat visits
+- **CSS Cache Busting** - Forces fresh CSS on updates
+- **Image Optimization** - WebP conversion and compression
+- **Critical CSS** - Inline above-the-fold styles for instant loading
+- **Resource Preloading** - Faster font and asset loading
 
 ### File Structure
 ```
@@ -44,6 +92,8 @@ bundle exec jekyll serve --livereload
 **For Content Editors:** See [Content Editing Guide](doc/CONTENT_EDITING.md) for safe editing instructions.
 
 **For Developers:** See [Development Guide](doc/DEVELOPMENT.md) for technical details.
+
+**For Performance:** See [Performance Guide](PERFORMANCE_GUIDE.md) for production optimization settings.
 
 ### Quick Guidelines
 - Edit files in `_pages/` directory for page content

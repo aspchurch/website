@@ -84,35 +84,44 @@
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="{{ '/assets/images/AS-Mark_Olive.png' | relative_url }}" as="image" type="image/png">
+    {% if site.performance.enable_css_cache_busting %}
+    <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" as="style">
+    {% else %}
     <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style">
+    {% endif %}
 
     <!-- Optimized Google Fonts Loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- Critical CSS (inline for performance) -->
     <style>
-        :root{--navy:#1a365d;--blue:#4299e1;--gold:#f6ad55;--light-blue:#90cdf4;--gray-50:#f7fafc;--gray-100:#edf2f7;--gray-800:#2d3748}
+        :root{--navy:#1a365d;--blue:#4299e1;--color-primary:#1a2e1a;--color-primary-light:#2d4a2d;--light-blue:#90cdf4;--gray-50:#f7fafc;--gray-100:#edf2f7;--gray-800:#2d3748}
         *,*::before,*::after{box-sizing:border-box}
         body{font-family:'Lora',Georgia,serif;margin:0;padding:0;background:var(--gray-100);line-height:1.6;color:var(--gray-800)}
         .site-header{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
         .navbar{padding:1rem 0}.nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
         .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--navy);font-weight:600;font-size:1.125rem}
         .logo{margin-right:0.75rem;border-radius:50%}
-        .hero-section{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 50%,var(--light-blue) 100%);color:white;text-align:center;padding:6rem 2rem 5rem;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+        .hero-section{background:#f8f9fa;color:var(--color-primary);text-align:center;padding:6rem 2rem 5rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center}
         .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 1rem;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
         .hero-subtitle{font-size:clamp(1rem,3vw,1.5rem);margin:0 0 2rem;opacity:0.95;max-width:600px}
         .hero-buttons{display:flex;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;justify-content:center}
         .btn{display:inline-block;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;transition:all 0.3s ease;border:2px solid transparent}
-        .btn-primary{background:var(--gold);color:var(--navy);border-color:var(--gold)}
-        .btn:not(.btn-primary){background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);backdrop-filter:blur(10px)}
+        .btn-primary{background:var(--color-primary);color:white;border-color:var(--color-primary);font-weight:700}
+        .btn:not(.btn-primary){background:rgba(26,46,26,0.1);color:var(--color-primary);border-color:var(--color-primary);backdrop-filter:none}
         .hero-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:800px;width:100%}
         .hero-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:2rem;text-align:center}
         @media (max-width:768px){.nav-container{padding:0 1rem}.hero-section{padding:4rem 1rem 3rem}.hero-cards{grid-template-columns:1fr;gap:1rem}.hero-card{padding:1.5rem}}
     </style>
 
     <!-- CSS Loading Strategy -->
+    {% if site.performance.enable_css_cache_busting %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
+    {% else %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
     <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"></noscript>
+    {% endif %}
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
@@ -197,12 +206,12 @@
     </footer>
 
     <!-- Service Worker Registration -->
-    <!-- DISABLED FOR DEVELOPMENT - Uncomment for production caching
+    {% if site.performance.enable_service_worker %}
     <script>
-        // Register service worker for offline functionality and caching
-        if ('serviceWorker' in navigator) {
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/website/sw.js')
+                navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}')
                     .then(function(registration) {
                         console.log('ServiceWorker registration successful');
                     })
@@ -210,9 +219,13 @@
                         console.log('ServiceWorker registration failed: ', error);
                     });
             });
+        } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('ServiceWorker disabled in development mode');
         }
     </script>
-    -->
+    {% else %}
+    <!-- ServiceWorker disabled via _config.yml performance.enable_service_worker -->
+    {% endif %}
 
     <!-- Performance Monitoring & Core Web Vitals -->
     <script>

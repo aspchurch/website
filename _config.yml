@@ -10,6 +10,14 @@ church:
   tagline: "A new church plant serving North County San Diego"
   location: "Carlsbad, North County San Diego"
 
+# Performance & Optimization Settings
+# Set to false during development, true for production
+performance:
+  enable_service_worker: false     # Enables offline caching
+  enable_css_cache_busting: false  # Adds timestamps to CSS files
+  enable_image_optimization: false # Use optimized WebP images
+  enable_preload_optimization: true # Keep critical resource preloading
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
