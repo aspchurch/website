@@ -1,146 +1,88 @@
 # All Saints Presbyterian Church Website
 
-A static Jekyll website for All Saints Presbyterian Church - a new church plant serving the coastal communities of North County San Diego.
+A modern Jekyll-based website for All Saints Presbyterian Church, built with responsive design and optimized for GitHub Pages hosting.
 
-## Setup
+## 🚀 Quick Start
 
-### Prerequisites
-- Ruby 3.1+
-- Bundler gem
-- Git
+```bash
+# Clone and setup
+git clone [repository-url]
+cd website
+bundle install
 
-### Local Development
-
-1. **Clone and install dependencies:**
-   ```bash
-   git clone <repository-url>
-   cd my.website
-   bundle install
-   ```
-
-2. **Run locally:**
-   ```bash
-   make serve
-   ```
-
-   *Alternative: `bundle exec jekyll serve --livereload`*
-
-3. **View site:**
-   Open `http://localhost:4000/my.website/`
-
-### Available Commands
-
-- `make serve` - Run the site locally with live reload
-- `make build` - Build the site for production
-- `make install` - Install Ruby dependencies
-- `make clean` - Clean build artifacts
-- `make setup` - Install dependencies and run the site
-
-### Project Structure
-
-```
-├── _config.yml          # Site configuration
-├── _layouts/            # Page templates
-├── assets/
-│   ├── css/            # Stylesheets
-│   └── images/         # Logo and images
-├── *.md                # Content pages
-├── index.html          # Homepage
-└── Makefile            # Build commands
+# Development server
+bundle exec jekyll serve --livereload
+# Visit http://localhost:4000
 ```
 
-### Images Directory
+## 📋 Project Overview
 
-Place your church logo and other images in this directory.
+**Jekyll 4.2** static site with **responsive design**, **Sass/SCSS** styling, and **GitHub Pages** deployment.
 
-Expected files:
-- `logo.png` - Church logo for the navigation
-- `favicon.ico` - Website favicon (optional)
+### Key Pages & Features
+- `index.html` - Homepage with welcome message
+- `what-we-believe.md` - Church doctrine with responsive 3-column layout
+- `about.md` - Church information and history
+- `leadership.md` - Staff and leadership team
+- `meeting-time.md` - Service times and location
+- `give.md` - Donation and giving information
+- `vision-and-values.md` - Church mission and values
 
-The logo should be approximately 200x200 pixels for best results.
+### File Structure
+```
+├── _layouts/           # Jekyll page templates
+├── _includes/          # Reusable components
+├── _sass/             # Modular Sass stylesheets
+├── assets/css/        # Main SCSS file
+├── doc/               # Documentation
+└── *.md              # Content pages
+```
 
-## Deployment
+## 🎯 Content Management
 
-### GitHub Pages
+**For Content Editors:** See [Content Editing Guide](doc/CONTENT_EDITING.md) for safe editing instructions.
 
-This site automatically deploys to GitHub Pages via GitHub Actions:
+**For Developers:** See [Development Guide](doc/DEVELOPMENT.md) for technical details.
 
-1. **Push to main branch:**
-   ```bash
-   git add .
-   git commit -m "Update content"
-   git push origin main
-   ```
+### Quick Guidelines
+- Edit `.md` files for page content
+- Maintain YAML front matter (the `---` sections)
+- Use markdown formatting
+- Avoid `_site/`, `_sass/`, `_layouts/` directories
 
-2. **Enable GitHub Pages:**
-   - Go to repository Settings → Pages
-   - Set source to "GitHub Actions"
-   - Site will be available at: `https://munderseth.github.io/my.website/`
+## 🏗️ Current Status
 
-### Content Updates
+### ✅ Phase 1 Complete - Foundation
+- Sass architecture with modular organization (`_sass/_beliefs.scss`)
+- Responsive 3-column layout for beliefs page
+- Cleaned unused files and improved structure
+- Comprehensive documentation created
 
-**For non-technical users:**
-- Edit `.md` files directly on GitHub.com
-- Changes automatically deploy when saved
-- Main content files:
-  - `index.html` - Homepage
-  - `leadership.md` - Leadership page
-  - `what-we-believe.md` - Beliefs page
-  - `vision-and-values.md` - Vision page
-  - `meeting-time.md` - Service times
-  - `give.md` - Giving information
+### 🔄 Next - Phase 2 Planning
+- Extract content to YAML data files (`_data/beliefs.yml`)
+- Create reusable Jekyll includes/components
+- Advanced Sass organization with variables/mixins
+- Content templates and validation
 
-## Caching Control
+## 💻 Development
 
-The site includes a service worker for offline functionality and performance caching. During development, caching is disabled to ensure you see the latest changes immediately.
+### Commands
+```bash
+bundle exec jekyll serve --livereload  # Development
+bundle exec jekyll build               # Production build
+bundle exec jekyll clean               # Clean cache
+```
 
-### To Disable Caching (Development Mode - Currently Active)
+### Sass Architecture
+- **Main**: `assets/css/style.scss` (imports partials)
+- **Partials**: `_sass/_beliefs.scss` (component styles)
+- **Future**: Variables, mixins, and better organization
 
-Caching is currently **DISABLED** for development. The service worker registration is commented out in `_layouts/default.html`.
+### Deployment
+- **Auto-deploy**: Push to `main` branch
+- **Hosting**: GitHub Pages
+- **URL**: https://aspchurch.github.io/website/
 
-**What's disabled:**
-- Service worker caching (commented out in `_layouts/default.html`)
-- Incremental builds (`incremental: false` in `_config.yml`)
-- Build regeneration forced (`regenerate: true` in `_config.yml`)
+---
 
-### To Enable Caching (Production Mode)
-
-When ready for production deployment:
-
-1. **Enable service worker in `_layouts/default.html`:**
-   - Remove the comment tags (`<!--` and `-->`) around the service worker registration script
-   - The script should be active (lines ~200-215)
-
-2. **Optional: Enable incremental builds in `_config.yml`:**
-   ```yaml
-   # Change these for faster builds (optional)
-   incremental: true
-   regenerate: false
-   ```
-
-3. **Update cache version in `sw.js`:**
-   - Change `CACHE_VERSION = IS_DEV ? Date.now().toString() : 'v1.3';`
-   - Increment the version (e.g., `'v1.4'`) for each major deployment
-
-### Hard Refresh During Development
-
-If you still see cached content:
-
-**Desktop:**
-- **Chrome/Edge:** `Ctrl+Shift+R` (Linux/Windows) or `Cmd+Shift+R` (Mac)
-- **Firefox:** `Ctrl+F5` (Linux/Windows) or `Cmd+Shift+R` (Mac)
-- **Safari:** `Cmd+Option+R`
-
-**Mobile:**
-- **iPhone (Safari):** Hold refresh button → "Reload Without Content Blockers"
-- **iPhone (Chrome):** Menu (⋯) → Settings → Privacy → Clear Browsing Data
-- **Android (Chrome):** Menu (⋯) → Settings → Privacy and Security → Clear browsing data
-- **Android (Firefox):** Menu (⋯) → Settings → Delete browsing data
-
-## Technical Notes
-
-- Built with Jekyll 4.2
-- Mobile-responsive design
-- Live reload for development
-- Optimized for GitHub Pages hosting
-- Service worker provides offline functionality when enabled
+📚 **Documentation**: [Content Editing](doc/CONTENT_EDITING.md) | [Development](doc/DEVELOPMENT.md)

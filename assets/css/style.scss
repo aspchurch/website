@@ -1,3 +1,6 @@
+---
+---
+
 /* CSS Custom Properties (Variables) */
 :root {
     /* Primary Colors - Darker olive theme */
@@ -764,3 +767,6 @@ small {
         margin-top: 2rem;
     }
 }
+
+/* Import beliefs page styling */
+@import "beliefs";
