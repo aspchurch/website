@@ -1,71 +1,138 @@
-# Development Guide
+# Development Guide# Development Guide
 
-**For All Saints Presbyterian Church Website**
 
-Technical documentation for developers working on the Jekyll site.
 
----
+**Technical details for developers working on the All Saints Presbyterian Church website.****For All Saints Presbyterian Church Website**
 
-## 🏗️ Architecture
 
-### Current Tech Stack
-- **Framework**: Jekyll 4.2 static site generator
+
+## Development SetupTechnical documentation for developers working on the Jekyll site.
+
+
+
+```bash---
+
+# Install dependencies
+
+bundle install## 🏗️ Architecture
+
+
+
+# Development server with live reload### Current Tech Stack
+
+bundle exec jekyll serve --livereload- **Framework**: Jekyll 4.2 static site generator
+
 - **Styling**: Sass/SCSS with modular architecture
-- **Hosting**: GitHub Pages with automated deployment
-- **Build**: Ruby/Bundler dependency management
+
+# Production build- **Hosting**: GitHub Pages with automated deployment
+
+bundle exec jekyll build- **Build**: Ruby/Bundler dependency management
+
+```
 
 ### File Organization
-```
+
+## Technical Architecture```
+
 ├── _sass/                   # Sass partials (modular styles)
-│   └── _beliefs.scss        # Beliefs page specific styles
-├── assets/css/
-│   └── style.scss           # Main SCSS file (imports partials)
-├── _layouts/                # Jekyll templates
-├── _includes/               # Reusable components
-├── _data/                   # YAML data files
+
+### YAML-Driven Content System│   └── _beliefs.scss        # Beliefs page specific styles
+
+All page content is stored in `_data/` YAML files and rendered via Liquid templates in `_pages/`. This provides:├── assets/css/
+
+- Content editor safety (non-technical users can edit YAML)│   └── style.scss           # Main SCSS file (imports partials)
+
+- Consistent data structure├── _layouts/                # Jekyll templates
+
+- Template reusability├── _includes/               # Reusable components
+
+- Validation possibilities├── _data/                   # YAML data files
+
 └── doc/                     # Documentation
-```
+
+### Performance Configuration```
+
+Development vs production settings controlled via `_config.yml`:
 
 ---
 
-## 🎯 Development Phases
+```yaml
 
-### ✅ Phase 1 Complete - Foundation Cleanup
-- Converted CSS to proper Sass architecture
-- Cleaned up unused files (`beliefs-content.html`, old `style.css`)
+performance:## 🎯 Development Phases
+
+  enable_service_worker: false     # Development: false, Production: true
+
+  enable_css_cache_busting: false  # Development: false, Production: true  ### ✅ Phase 1 Complete - Foundation Cleanup
+
+  enable_image_optimization: false # Development: false, Production: true- Converted CSS to proper Sass architecture
+
+```- Cleaned up unused files (`beliefs-content.html`, old `style.css`)
+
 - Moved styles from inline includes to proper Sass partials
-- Created content editing documentation
-- Organized documentation structure
 
-### ✅ Phase 2 Complete - Data & Components
-- ✅ Extracted beliefs content to `_data/beliefs.yml`
-- ✅ Created reusable Jekyll includes/components (`_includes/belief-section.html`)
-- ✅ Implemented proper Sass organization with variables/mixins
-- ✅ Modular Sass architecture with `_variables.scss`, `_mixins.scss`, `_base.scss`, `_layout.scss`
+### Critical CSS- Created content editing documentation
 
-### 🚀 Phase 3 Planned - Advanced Features
+Inline critical CSS in `_layouts/default.html` prevents flash of unstyled content (FOUC). Must include essential styles for above-the-fold content.- Organized documentation structure
+
+
+
+### Production Deployment### ✅ Phase 2 Complete - Data & Components
+
+1. Set all performance flags to `true` in `_config.yml`- ✅ Extracted beliefs content to `_data/beliefs.yml`
+
+2. Run `./optimize-images.sh` for image compression- ✅ Created reusable Jekyll includes/components (`_includes/belief-section.html`)
+
+3. Restore `sw.js.production` → `sw.js` for service worker- ✅ Implemented proper Sass organization with variables/mixins
+
+4. Use `./build-optimized.sh` for minified builds- ✅ Modular Sass architecture with `_variables.scss`, `_mixins.scss`, `_base.scss`, `_layout.scss`
+
+
+
+## File Structure### 🚀 Phase 3 Planned - Advanced Features
+
 - Jekyll collections for staff/ministries/events
-- Automated content workflows and validation
-- Advanced performance optimizations
-- Enhanced content management features
-- Additional page templates and data structures
 
----
+```- Automated content workflows and validation
 
-## 💻 Development Workflow
+├── _data/             # YAML content (edited by content team)- Advanced performance optimizations
+
+├── _pages/            # Liquid templates (developers)- Enhanced content management features
+
+├── _layouts/          # Site templates (developers)- Additional page templates and data structures
+
+├── _sass/             # Modular SCSS (developers)
+
+├── assets/            # Images and main CSS (developers)---
+
+├── _config.yml        # Jekyll configuration (developers)
+
+└── sw.js.production   # Service worker (disabled in dev)## 💻 Development Workflow
+
+```
 
 ### Local Setup
-```bash
-# Install dependencies
-bundle install
 
-# Development server (with live reload)
-bundle exec jekyll serve --livereload
+## Development Notes```bash
+
+# Install dependencies
+
+- **Service worker disabled** during development to prevent caching issuesbundle install
+
+- **No cache busting** in development for clean CSS loading
+
+- **Image optimization disabled** for faster builds# Development server (with live reload)
+
+- **Critical CSS** must be manually updated when styles changebundle exec jekyll serve --livereload
+
+- **YAML validation** recommended before content deployment
 
 # Production build
-bundle exec jekyll build
 
-# Clean build artifacts
+---bundle exec jekyll build
+
+
+
+*For content editing instructions, see main README.md*# Clean build artifacts
 bundle exec jekyll clean
 ```
 

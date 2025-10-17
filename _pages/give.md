@@ -4,14 +4,14 @@ title: "Give"
 permalink: /give/
 ---
 
-# Giving and Support
+# {{ site.data.giving.giving.title }}
 
-Thank you for your heart to support All Saints Presbyterian Church. Your generous giving helps us fulfill our mission to serve the coastal communities of North County San Diego.
+{{ site.data.giving.giving.intro }}
 
-## Give Online
+## {{ site.data.giving.online_giving.title }}
 
-You can give securely online through our giving platform:
+{{ site.data.giving.online_giving.description }}
 
-<a href="https://give.tithe.ly/?formId=44c35121-6cb3-40c6-89d2-bc4305ee1703" target="_blank" rel="noopener noreferrer">**Give Online Here**</a>
+<a href="{{ site.data.giving.online_giving.url }}" target="_blank" rel="noopener noreferrer">**{{ site.data.giving.online_giving.button_text }}**</a>
 
-Your financial partnership enables us to continue our ministry and outreach in our community.
+{{ site.data.giving.online_giving.closing_message }}

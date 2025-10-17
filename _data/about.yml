@@ -1,0 +1,88 @@
+# About Page Content for All Saints Presbyterian Church
+# ===================================================
+# This file contains the structured content for the About Us page.
+# Content editors can safely modify this file without affecting page layout.
+
+# Welcome Section
+welcome:
+  title: "Welcome to Our Church Family"
+  content: |
+    We are a <span class="welcome-highlight">new church plant</span> committed to proclaiming the Gospel of Jesus Christ in the beautiful coastal communities of North County San Diego.
+
+    Whether you're exploring faith for the first time or seeking to <span class="welcome-highlight">serve Christ by serving His church</span>, you belong here. Come as you are and discover how God's grace transforms lives and community.
+
+# Pastor Information
+pastor:
+  title: "Our Pastor"
+  name: "Rev. M. Connor Underseth"
+  role: "Planting Pastor"
+  image: "family.png"
+  image_alt: "Rev. Connor Underseth and his family"
+  bio: |
+    Rev. M. Connor Underseth is a native San Diegan who grew up in Carlsbad. He discovered Reformed theology as a history major in college and has never looked back. Connor is a graduate of San Francisco State University (B.A. History) 2014, Westminster Seminary California (M.A. Biblical Studies) (M.A. Theological Studies) 2018, and is currently working on a ThM in Historical Theology at Puritan Reformed Theological Seminary. His research is focused on ecclesiology in the post-Reformation era.
+
+    Prior to serving at All Saints Presbyterian Church, Connor served first as the Assistant Pastor, then Associate Pastor at New Life Presbyterian Church of La Mesa from 2020 to 2025. He also served as the Stated Clerk of the South Coast Presbytery (PCA) from 2023-2025.
+
+    He and his wife Danielle have three young children, and enjoy going to the beach and spending time with family and friends. Connor also enjoys surfing and is an avid home cook.
+  email: "connor@aspchurch.com"
+
+# Church Plant Story
+church_story:
+  title: "Our Church Plant Story"
+  content: |
+    All Saints Presbyterian Church began as a vision to bring Reformed worship and biblical teaching to the growing communities of North County San Diego. As a church plant in the Presbyterian Church in America (PCA), we are committed to:
+  commitments:
+    - title: "Expository Preaching"
+      description: "Faithful exposition of God's Word"
+    - title: "Reformed Worship"
+      description: "Historic Christian liturgy and practice"
+    - title: "Community Fellowship"
+      description: "Building authentic relationships"
+    - title: "Gospel Mission"
+      description: "Sharing Christ's love in North County"
+
+# What to Expect Section
+what_to_expect:
+  title: "What to Expect"
+  first_time_visitors:
+    title: "First-Time Visitors"
+    items:
+      - title: "Warm Welcome"
+        description: "You'll be greeted with genuine hospitality"
+      - title: "Casual Dress"
+        description: "Come as you are, no dress code required"
+      - title: "Biblical Worship"
+        description: "Reverent yet accessible service format"
+      - title: "Childcare Available"
+        description: "For children ages 1-6 during service"
+
+  our_service:
+    title: "Our Service"
+    details:
+      - label: "Time"
+        value: "Sunday Evenings at 5:00 PM"
+      - label: "Location"
+        value: "Redeemer By The Sea Lutheran Church\n6600 Black Rail Rd, Carlsbad CA 92011"
+      - label: "Duration"
+        value: "Approximately 1 hour and 15 minutes"
+      - label: "Style"
+        value: "Traditional Reformed liturgy with contemporary relevance"
+
+# Get Connected Section
+get_connected:
+  title: "Get Connected"
+  intro: "We'd love to meet you! Here are ways to connect with our church family:"
+  ways_to_connect:
+    - title: "Sunday Worship"
+      content: "Join us Sunday evenings at 5:00 PM for worship, fellowship, and community."
+    - title: "Pastor Connor"
+      content: |
+        Email: [connor@aspchurch.com](mailto:connor@aspchurch.com)
+        Feel free to reach out with questions or to schedule a coffee conversation.
+    - title: "Serve With Us"
+      content: "There are many opportunities to serve Christ by serving His church. From hospitality to children's ministry, find your place in our community."
+    - title: "Stay Updated"
+      content: "Follow us on [Instagram](https://www.instagram.com/allsaintspresbyterianchurch/) for updates and community highlights."
+
+# Closing Message
+closing_message: "We believe that God's grace transforms lives and community. Whether you're exploring faith for the first time or looking for a church home, you're welcome here."

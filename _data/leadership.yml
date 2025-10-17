@@ -1,0 +1,62 @@
+# Leadership Page Content for All Saints Presbyterian Church
+# ========================================================
+# This file contains the structured content for the Leadership page.
+# Content editors can safely modify this file without affecting page layout.
+
+# Page Introduction
+intro:
+  title: "Meet our pastoral leadership"
+  description: "Learn about the pastoral team serving All Saints Presbyterian Church"
+
+# Leadership Team
+leadership_team:
+  - name: "Rev. M. Connor Underseth"
+    title: "Planting Pastor"
+    email: "connor@aspchurch.com"
+    image: "family.png"
+    image_alt: "Rev. Connor Underseth and his family"
+    bio: |
+      Rev. M. Connor Underseth is a native San Diegan who grew up in Carlsbad. He discovered Reformed theology as a history major in college and has never looked back. Connor is a graduate of San Francisco State University (B.A. History) 2014, Westminster Seminary California (M.A. Biblical Studies) (M.A. Theological Studies) 2018, and is currently working on a ThM in Historical Theology at Puritan Reformed Theological Seminary. His research is focused on ecclesiology in the post-Reformation era.
+
+      Prior to serving at All Saints Presbyterian Church, Connor served first as the Assistant Pastor, then Associate Pastor at New Life Presbyterian Church of La Mesa from 2020 to 2025. He also served as the Stated Clerk of the South Coast Presbytery (PCA) from 2023-2025.
+
+      He and his wife Danielle have three young children, and enjoy going to the beach and spending time with family and friends. Connor also enjoys surfing and is an avid home cook.
+
+    # Education and credentials (optional sections for future expansion)
+    education:
+      - degree: "B.A. History"
+        institution: "San Francisco State University"
+        year: "2014"
+      - degree: "M.A. Biblical Studies"
+        institution: "Westminster Seminary California"
+        year: "2018"
+      - degree: "M.A. Theological Studies"
+        institution: "Westminster Seminary California"
+        year: "2018"
+      - degree: "ThM in Historical Theology (In Progress)"
+        institution: "Puritan Reformed Theological Seminary"
+        year: "Current"
+
+    previous_positions:
+      - title: "Assistant Pastor"
+        organization: "New Life Presbyterian Church of La Mesa"
+        years: "2020-2022"
+      - title: "Associate Pastor"
+        organization: "New Life Presbyterian Church of La Mesa"
+        years: "2022-2025"
+      - title: "Stated Clerk"
+        organization: "South Coast Presbytery (PCA)"
+        years: "2023-2025"
+
+    personal:
+      family: "Married to Danielle, three young children"
+      interests:
+        - "Going to the beach"
+        - "Spending time with family and friends"
+        - "Surfing"
+        - "Home cooking"
+
+# Future leadership members can be added here
+# - name: "Future Pastor Name"
+#   title: "Associate Pastor"
+#   etc...
