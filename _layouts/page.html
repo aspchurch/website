@@ -5,11 +5,6 @@ layout: default
 {% if page.title %}
 <section class="page-hero">
     <div class="page-hero-content">
-        <nav class="breadcrumb">
-            <a href="{{ '/' | relative_url }}" class="breadcrumb-link">Home</a>
-            <span class="breadcrumb-separator">></span>
-            <span class="breadcrumb-current">{{ page.title }}</span>
-        </nav>
         <h1 class="page-hero-title">{{ page.title }}</h1>
         {% if page.subtitle %}
         <p class="page-hero-subtitle">{{ page.subtitle }}</p>
