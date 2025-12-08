@@ -1,13 +1,14 @@
 # Site settings
 title: "All Saints Presbyterian Church"
-description: "A new church plant serving North County San Diego"
+description: "We exists to be a church and a people formed by the gospel of Jesus Christ"
+#description: "A new church plant serving North County San Diego"
 url: "https://aspchurch.github.io"
 baseurl: "/website"
 
 # Church information
 church:
   name: "All Saints Presbyterian Church"
-  tagline: "A new church plant serving North County San Diego"
+  tagline: "We exists to be a church and a people formed by the gospel of Jesus Christ"
   location: "Carlsbad, North County San Diego"
 
 # Performance & Optimization Settings
