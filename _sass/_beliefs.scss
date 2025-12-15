@@ -1,15 +1,22 @@
 /* Beliefs Page Styling */
+.page-content:has(.beliefs-grid) {
+    max-width: 1400px;
+}
+
 .beliefs-intro {
     margin-bottom: 2rem;
     text-align: center;
     font-size: 1.1em;
     line-height: 1.6;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .beliefs-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
     margin-top: 2rem;
     align-items: start;
 }
