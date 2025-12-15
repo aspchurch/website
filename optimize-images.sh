@@ -14,9 +14,9 @@ if command -v convert &> /dev/null; then
     echo "✅ ImageMagick found - converting to WebP format..."
 
     # Convert existing images to WebP with optimization
-    if [ -f "assets/images/AS-Mark_Olive.png" ]; then
-        convert assets/images/AS-Mark_Olive.png -quality 85 -define webp:lossless=false assets/images/optimized/AS-Mark_Olive.webp
-        echo "   📄 AS-Mark_Olive.png → AS-Mark_Olive.webp"
+    if [ -f "assets/images/logo.png" ]; then
+        convert assets/images/logo.png -quality 85 -define webp:lossless=false assets/images/optimized/logo.webp
+        echo "   📄 logo.png → logo.webp"
     fi
 
     if [ -f "assets/images/family.png" ]; then
@@ -48,7 +48,7 @@ fi
 # Generate sizes for existing images (fallback method)
 echo ""
 echo "📏 Recommended image sizes:"
-echo "   • Logo (AS-Mark_Olive.png): 40x40, 80x80, 120x120 (for different screen densities)"
+echo "   • Logo (logo.png): 40x40, 80x80, 120x120 (for different screen densities)"
 echo "   • Family photo: 400x300, 600x450, 800x600 (responsive breakpoints)"
 echo "   • Hero images: 800x400, 1200x600, 1600x800 (for different screen sizes)"
 

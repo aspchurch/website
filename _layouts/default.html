@@ -83,7 +83,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="{{ '/assets/images/AS-Mark_Olive.png' | relative_url }}" as="image" type="image/png">
+    <link rel="preload" href="{{ '/assets/images/logo.png' | relative_url }}" as="image" type="image/png">
     {% if site.performance.enable_css_cache_busting %}
     <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" as="style">
     {% else %}
@@ -126,10 +126,10 @@
     {% endif %}
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="{{ '/assets/images/favicon-16x16.svg' | relative_url }}">
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="{{ '/assets/images/favicon-32x32.svg' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.svg' | relative_url }}">
+    <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon.png' | relative_url }}">
     <link rel="manifest" href="{{ '/assets/images/site.webmanifest' | relative_url }}">
 </head>
 <body>
@@ -138,7 +138,7 @@
             <div class="nav-container">
                 <div class="nav-logo">
                     <a href="{{ '/' | relative_url }}">
-                        <img src="{{ '/assets/images/AS-Mark_Olive.png' | relative_url }}"
+                        <img src="{{ '/assets/images/logo.png' | relative_url }}"
                              alt="{{ site.church.name }} Logo"
                              class="logo"
                              width="40"
@@ -195,10 +195,6 @@
                         </a>
                     </p>
                 </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; {{ 'now' | date: '%Y' }} {{ site.church.name }}. All rights reserved.</p>
             </div>
         </div>
     </footer>
