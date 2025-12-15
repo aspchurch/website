@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vision and Values"
-subtitle: "Our mission and the principles that guide our church"
+#subtitle: "Our mission and the principles that guide our church"
 permalink: /vision-and-values/
 ---
 

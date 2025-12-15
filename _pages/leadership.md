@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Leadership"
-subtitle: "Meet our pastoral leadership"
+#subtitle: "Meet our pastoral leadership"
 permalink: /leadership/
 ---
 

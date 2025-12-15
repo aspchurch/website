@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "What We Believe"
-subtitle: "Our biblical foundation and confessional commitments"
+#subtitle: "Our biblical foundation and confessional commitments"
 permalink: /what-we-believe/
 ---
 
