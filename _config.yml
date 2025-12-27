@@ -2,8 +2,8 @@
 title: "All Saints Presbyterian Church"
 description: "We exists to be a church and a people formed by the gospel of Jesus Christ"
 #description: "A new church plant serving North County San Diego"
-url: "https://aspchurch.github.io"
-baseurl: "/website"
+url: "https://www.aspchurch.com"
+baseurl: ""
 
 # Church information
 church:
