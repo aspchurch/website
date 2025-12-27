@@ -118,11 +118,9 @@
 
     <!-- CSS Loading Strategy -->
     {% if site.performance.enable_css_cache_busting %}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}"></noscript>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     {% else %}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"></noscript>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     {% endif %}
 
     <!-- Favicons -->
