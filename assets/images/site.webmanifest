@@ -4,19 +4,19 @@
     "description": "A new church plant serving the coastal communities of North County San Diego",
     "icons": [
         {
-            "src": "favicon-16x16.svg",
+            "src": "favicon.png",
             "sizes": "16x16",
-            "type": "image/svg+xml"
+            "type": "image/png"
         },
         {
-            "src": "favicon-32x32.svg",
+            "src": "favicon.png",
             "sizes": "32x32",
-            "type": "image/svg+xml"
+            "type": "image/png"
         },
         {
-            "src": "apple-touch-icon.svg",
+            "src": "favicon.png",
             "sizes": "180x180",
-            "type": "image/svg+xml"
+            "type": "image/png"
         }
     ],
     "theme_color": "#1a365d",

@@ -14,7 +14,7 @@ const STATIC_ASSETS = [
     '/website/',
     '/website/index.html',
     '/website/assets/css/style.css',
-    '/website/assets/images/AS-Mark_Olive.png',
+    '/website/assets/images/logo.png',
     '/website/about/',
     '/website/leadership/',
     '/website/what-we-believe/',

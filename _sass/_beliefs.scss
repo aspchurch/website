@@ -1,0 +1,63 @@
+/* Beliefs Page Styling */
+.page-content:has(.beliefs-grid) {
+    max-width: 1400px;
+}
+
+.beliefs-intro {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: start;
+}
+
+.belief-section {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.belief-section h2 {
+    color: var(--color-primary, #1a2e1a);
+    border-bottom: 2px solid #cbd5e0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-size: 1.3em;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.belief-section p {
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: #2d3748;
+}
+
+@media (max-width: 1024px) {
+    .beliefs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .beliefs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

@@ -1,146 +1,196 @@
 # All Saints Presbyterian Church Website
 
-A static Jekyll website for All Saints Presbyterian Church - a new church plant serving the coastal communities of North County San Diego.
+A modern Jekyll-based website for All Saints Presbyterian Church, built with responsive design and optimized for GitHub Pages hosting.
 
-## Setup
+## 🚀 Quick Start
 
-### Prerequisites
-- Ruby 3.1+
-- Bundler gem
-- Git
+```bash
+# Clone and setup
+git clone [repository-url]
+cd website
+bundle install
 
-### Local Development
-
-1. **Clone and install dependencies:**
-   ```bash
-   git clone <repository-url>
-   cd my.website
-   bundle install
-   ```
-
-2. **Run locally:**
-   ```bash
-   make serve
-   ```
-
-   *Alternative: `bundle exec jekyll serve --livereload`*
-
-3. **View site:**
-   Open `http://localhost:4000/my.website/`
-
-### Available Commands
-
-- `make serve` - Run the site locally with live reload
-- `make build` - Build the site for production
-- `make install` - Install Ruby dependencies
-- `make clean` - Clean build artifacts
-- `make setup` - Install dependencies and run the site
-
-### Project Structure
-
-```
-├── _config.yml          # Site configuration
-├── _layouts/            # Page templates
-├── assets/
-│   ├── css/            # Stylesheets
-│   └── images/         # Logo and images
-├── *.md                # Content pages
-├── index.html          # Homepage
-└── Makefile            # Build commands
+# Development server
+bundle exec jekyll serve --livereload
+# Visit http://localhost:4000
 ```
 
-### Images Directory
+---
 
-Place your church logo and other images in this directory.
+## 📝 Content Editing Guide
 
-Expected files:
-- `logo.png` - Church logo for the navigation
-- `favicon.ico` - Website favicon (optional)
+**For non-technical users:** This section helps you safely update website content without breaking the site.
 
-The logo should be approximately 200x200 pixels for best results.
+### ✅ **SAFE TO EDIT - YAML Data Files (Recommended)**
 
-## Deployment
+**These files contain all the content and are the safest way to edit:**
 
-### GitHub Pages
+| File | Purpose | What You Can Update |
+|------|---------|-------------------|
+| `_data/beliefs.yml` | Church doctrine | Belief statements, intro text |
+| `_data/about.yml` | About page content | Welcome message, pastor bio, contact info |
+| `_data/leadership.yml` | Leadership team | Pastor info, add new staff members |
+| `_data/vision.yml` | Vision & values | Mission statements, church values |
+| `_data/service.yml` | Service information | Service times, location, childcare info |
+| `_data/giving.yml` | Giving page | Donation messages, giving platform URL |
 
-This site automatically deploys to GitHub Pages via GitHub Actions:
+### 📋 **How to Edit Content**
 
+#### **Method 1: Edit on GitHub (Recommended)**
+1. Go to your repository on GitHub.com
+2. Navigate to `_data/` folder → select file to edit
+3. Click the pencil icon (✏️) "Edit this file"
+4. Make your changes (see examples below)
+5. Add commit message like "Update service times"
+6. Click "Commit changes"
+7. Site updates automatically in 2-3 minutes
+
+#### **YAML Editing Examples:**
+
+**Update Service Times:** `_data/service.yml`
+```yaml
+service:
+  time: "5:00 PM"                    ← Change time here
+  location:
+    address: "6600 Black Rail Rd..."  ← Update address
+```
+
+**Update Pastor Information:** `_data/leadership.yml`
+```yaml
+leadership_team:
+  - name: "Rev. M. Connor Underseth"     ← Update name
+    title: "Planting Pastor"             ← Update title
+    email: "connor@aspchurch.com"        ← Update email
+    bio: |                               ← Update biography
+      Your pastor's biography here...
+```
+
+**Update Beliefs:** `_data/beliefs.yml`
+```yaml
+beliefs:
+  - title: "The Bible"                 ← Update title
+    content: |                         ← Update content
+      Our belief about Scripture...
+```
+
+**Update Giving Information:** `_data/giving.yml`
+```yaml
+online_giving:
+  url: "https://your-giving-platform.com"  ← Update giving link
+  button_text: "Give Online Here"          ← Update button text
+```
+
+### ❌ **DO NOT EDIT** - These can break the site:
+- Files ending in `.html` or in `_layouts/` folder
+- Lines starting with `{%` or `{{` (Jekyll code)
+- Lines starting with `<` (HTML tags)
+- `_config.yml` file
+
+---
+
+## ⚙️ Performance Configuration
+
+**Control production optimizations via `_config.yml` settings:**
+
+### 🔧 Development Mode (Current)
+```yaml
+performance:
+  enable_service_worker: false     # No caching - good for development
+  enable_css_cache_busting: false  # Clean CSS loading
+  enable_image_optimization: false # Use original images
+```
+**Benefits:** Clean loading, no caching conflicts, easier debugging
+
+### 🚀 Production Mode (For Launch)
+```yaml
+performance:
+  enable_service_worker: true      # Offline caching
+  enable_css_cache_busting: true   # Force fresh CSS updates  
+  enable_image_optimization: true  # Optimize images
+```
+**Benefits:** Faster loading, offline support, optimized images
+
+**To Switch:** Edit `_config.yml`, restart Jekyll, run `./optimize-images.sh` for images
+
+---
+
+## 📋 Technical Overview
+
+### Architecture
+- **Jekyll 4.2** static site generator
+- **YAML-driven content** for safe editing
+- **Responsive design** with CSS Grid
+- **GitHub Pages** deployment
+- **Sass/SCSS** modular styling
+
+### Key Pages (All YAML-Driven)
+- `index.html` - Homepage with hero section
+- `_pages/beliefs.md` - Church doctrine (3-column responsive layout)
+- `_pages/about.md` - Church info and pastor details
+- `_pages/leadership.md` - Leadership team
+- `_pages/meeting-time.md` - Service times and location
+- `_pages/give.md` - Donation and giving information
+- `_pages/vision-and-values.md` - Church mission and values
+
+### File Structure
+```
+├── _data/             # YAML content files (EDIT THESE)
+│   ├── beliefs.yml    # Church doctrine content
+│   ├── about.yml      # About page and pastor info
+│   ├── leadership.yml # Leadership team info
+│   ├── vision.yml     # Vision and values content
+│   ├── service.yml    # Service times and location
+│   └── giving.yml     # Giving information
+├── _pages/            # Page templates (uses YAML data)
+├── _layouts/          # Site templates
+├── _sass/             # Modular stylesheets
+├── assets/            # Images and main CSS
+└── index.html         # Homepage
+```
+
+### Performance Features
+- **Critical CSS** - Inline above-the-fold styles for instant loading
+- **Resource Preloading** - Faster font and asset loading
+- **Service Worker** - Offline caching (disabled in development)
+- **Image Optimization** - WebP conversion and compression
+- **CSS Cache Busting** - Forces fresh CSS on updates
+
+## 🚀 Deployment
+
+### GitHub Pages (Automatic)
 1. **Push to main branch:**
    ```bash
    git add .
    git commit -m "Update content"
    git push origin main
    ```
+2. **Site updates automatically** in 2-3 minutes
+3. **Available at:** `https://aspchurch.github.io/website/`
 
-2. **Enable GitHub Pages:**
-   - Go to repository Settings → Pages
-   - Set source to "GitHub Actions"
-   - Site will be available at: `https://munderseth.github.io/my.website/`
+### Production Optimization
+When ready for launch:
+1. Set performance options to `true` in `_config.yml`
+2. Run `./optimize-images.sh` to compress images
+3. Run `./build-optimized.sh` for production build
+4. Restore `sw.js.production` → `sw.js` for offline caching
 
-### Content Updates
+---
 
-**For non-technical users:**
-- Edit `.md` files directly on GitHub.com
-- Changes automatically deploy when saved
-- Main content files:
-  - `index.html` - Homepage
-  - `leadership.md` - Leadership page
-  - `what-we-believe.md` - Beliefs page
-  - `vision-and-values.md` - Vision page
-  - `meeting-time.md` - Service times
-  - `give.md` - Giving information
+## 🏗️ Development Status
 
-## Caching Control
+### ✅ Completed Features
+- **Phase 1:** Jekyll foundation with responsive design
+- **Phase 2:** YAML-driven content architecture
+- **Phase 3:** Complete content editor safety
+- **Performance:** Configurable optimization system
+- **Documentation:** Consolidated content editing guide
 
-The site includes a service worker for offline functionality and performance caching. During development, caching is disabled to ensure you see the latest changes immediately.
+### Current Configuration
+- **Development mode** - No caching, clean loading
+- **YAML-driven content** - All pages use structured data
+- **Content-editor safe** - Non-technical users can edit `_data/` files
+- **Service worker disabled** - Prevents caching confusion during development
 
-### To Disable Caching (Development Mode - Currently Active)
+---
 
-Caching is currently **DISABLED** for development. The service worker registration is commented out in `_layouts/default.html`.
-
-**What's disabled:**
-- Service worker caching (commented out in `_layouts/default.html`)
-- Incremental builds (`incremental: false` in `_config.yml`)
-- Build regeneration forced (`regenerate: true` in `_config.yml`)
-
-### To Enable Caching (Production Mode)
-
-When ready for production deployment:
-
-1. **Enable service worker in `_layouts/default.html`:**
-   - Remove the comment tags (`<!--` and `-->`) around the service worker registration script
-   - The script should be active (lines ~200-215)
-
-2. **Optional: Enable incremental builds in `_config.yml`:**
-   ```yaml
-   # Change these for faster builds (optional)
-   incremental: true
-   regenerate: false
-   ```
-
-3. **Update cache version in `sw.js`:**
-   - Change `CACHE_VERSION = IS_DEV ? Date.now().toString() : 'v1.3';`
-   - Increment the version (e.g., `'v1.4'`) for each major deployment
-
-### Hard Refresh During Development
-
-If you still see cached content:
-
-**Desktop:**
-- **Chrome/Edge:** `Ctrl+Shift+R` (Linux/Windows) or `Cmd+Shift+R` (Mac)
-- **Firefox:** `Ctrl+F5` (Linux/Windows) or `Cmd+Shift+R` (Mac)
-- **Safari:** `Cmd+Option+R`
-
-**Mobile:**
-- **iPhone (Safari):** Hold refresh button → "Reload Without Content Blockers"
-- **iPhone (Chrome):** Menu (⋯) → Settings → Privacy → Clear Browsing Data
-- **Android (Chrome):** Menu (⋯) → Settings → Privacy and Security → Clear browsing data
-- **Android (Firefox):** Menu (⋯) → Settings → Delete browsing data
-
-## Technical Notes
-
-- Built with Jekyll 4.2
-- Mobile-responsive design
-- Live reload for development
-- Optimized for GitHub Pages hosting
-- Service worker provides offline functionality when enabled
+*Last Updated: October 2025*

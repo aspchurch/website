@@ -83,42 +83,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="{{ '/assets/images/AS-Mark_Olive.png' | relative_url }}" as="image" type="image/png">
+    <link rel="preload" href="{{ '/assets/images/logo.png' | relative_url }}" as="image" type="image/png">
+    {% if site.performance.enable_css_cache_busting %}
+    <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}" as="style">
+    {% else %}
     <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style">
+    {% endif %}
 
     <!-- Optimized Google Fonts Loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- Critical CSS (inline for performance) -->
     <style>
-        :root{--navy:#1a365d;--blue:#4299e1;--gold:#f6ad55;--light-blue:#90cdf4;--gray-50:#f7fafc;--gray-100:#edf2f7;--gray-800:#2d3748}
+        :root{--navy:#1a365d;--blue:#4299e1;--color-primary:#1a2e1a;--color-primary-light:#2d4a2d;--light-blue:#90cdf4;--gray-50:#f7fafc;--gray-100:#edf2f7;--gray-800:#2d3748}
         *,*::before,*::after{box-sizing:border-box}
         body{font-family:'Lora',Georgia,serif;margin:0;padding:0;background:var(--gray-100);line-height:1.6;color:var(--gray-800)}
+        a{color:var(--color-primary-light);transition:color 0.3s ease;text-decoration:none}
+        a:hover{color:var(--color-primary)}
         .site-header{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
         .navbar{padding:1rem 0}.nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
         .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--navy);font-weight:600;font-size:1.125rem}
         .logo{margin-right:0.75rem;border-radius:50%}
-        .hero-section{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 50%,var(--light-blue) 100%);color:white;text-align:center;padding:6rem 2rem 5rem;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+        .hero-section{background:#f8f9fa;color:var(--color-primary);text-align:center;padding:6rem 2rem 5rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center}
         .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 1rem;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
         .hero-subtitle{font-size:clamp(1rem,3vw,1.5rem);margin:0 0 2rem;opacity:0.95;max-width:600px}
         .hero-buttons{display:flex;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;justify-content:center}
         .btn{display:inline-block;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;transition:all 0.3s ease;border:2px solid transparent}
-        .btn-primary{background:var(--gold);color:var(--navy);border-color:var(--gold)}
-        .btn:not(.btn-primary){background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);backdrop-filter:blur(10px)}
+        .btn-primary{background:var(--color-primary);color:white;border-color:var(--color-primary);font-weight:700}
+        .btn:not(.btn-primary){background:rgba(26,46,26,0.1);color:var(--color-primary);border-color:var(--color-primary);backdrop-filter:none}
         .hero-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:800px;width:100%}
         .hero-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:2rem;text-align:center}
         @media (max-width:768px){.nav-container{padding:0 1rem}.hero-section{padding:4rem 1rem 3rem}.hero-cards{grid-template-columns:1fr;gap:1rem}.hero-card{padding:1.5rem}}
     </style>
 
     <!-- CSS Loading Strategy -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"></noscript>
+    {% if site.performance.enable_css_cache_busting %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    {% else %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% endif %}
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="{{ '/assets/images/favicon-16x16.svg' | relative_url }}">
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="{{ '/assets/images/favicon-32x32.svg' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.svg' | relative_url }}">
+    <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon.png' | relative_url }}">
     <link rel="manifest" href="{{ '/assets/images/site.webmanifest' | relative_url }}">
 </head>
 <body>
@@ -127,7 +136,7 @@
             <div class="nav-container">
                 <div class="nav-logo">
                     <a href="{{ '/' | relative_url }}">
-                        <img src="{{ '/assets/images/AS-Mark_Olive.png' | relative_url }}"
+                        <img src="{{ '/assets/images/logo.png' | relative_url }}"
                              alt="{{ site.church.name }} Logo"
                              class="logo"
                              width="40"
@@ -147,7 +156,7 @@
                     <li><a href="{{ '/about/' | relative_url }}">About</a></li>
                     <li><a href="{{ '/leadership/' | relative_url }}">Leadership</a></li>
                     <li><a href="{{ '/what-we-believe/' | relative_url }}">Beliefs</a></li>
-                    <li><a href="{{ '/give/' | relative_url }}">Give</a></li>
+                    <li><a href="https://give.tithe.ly/?formId=44c35121-6cb3-40c6-89d2-bc4305ee1703" target="_blank" rel="noopener noreferrer">Give</a></li>
                 </ul>
             </div>
             <div class="mobile-overlay"></div>
@@ -167,7 +176,7 @@
                         <strong>Sundays at 5:00 PM</strong><br>
                         6600 Black Rail Rd<br>
                         Carlsbad, CA 92011<br>
-                        <a href="{{ '/meeting-time/' | relative_url }}" class="footer-link">Plan Your Visit</a>
+                        <a href="{{ '/meeting-time/' | relative_url }}" class="footer-link footer-cta-link">→ Plan Your Visit</a>
                     </p>
                 </div>
 
@@ -175,34 +184,26 @@
                     <h4 class="footer-title">Connect</h4>
                     <p class="footer-info">
                         <a href="mailto:info@aspchurch.com" class="footer-link">info@aspchurch.com</a><br>
-                        <a href="https://www.instagram.com/allsaintspresbyterianchurch/" target="_blank" rel="noopener noreferrer" class="footer-link">Follow on Instagram</a>
+                        <a href="https://www.instagram.com/allsaintspresbyterianchurch/" target="_blank" rel="noopener noreferrer" class="footer-link footer-social-link" aria-label="Instagram">
+                            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
                     </p>
                 </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-title">Learn More</h4>
-                    <p class="footer-info">
-                        <a href="{{ '/about/' | relative_url }}" class="footer-link">About Our Church</a><br>
-                        <a href="{{ '/leadership/' | relative_url }}" class="footer-link">Meet Our Pastor</a><br>
-                        <a href="{{ '/what-we-believe/' | relative_url }}" class="footer-link">Our Beliefs</a><br>
-                        <a href="{{ '/give/' | relative_url }}" class="footer-link">Support Our Ministry</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; {{ 'now' | date: '%Y' }} {{ site.church.name }}. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Service Worker Registration -->
-    <!-- DISABLED FOR DEVELOPMENT - Uncomment for production caching
+    {% if site.performance.enable_service_worker %}
     <script>
-        // Register service worker for offline functionality and caching
-        if ('serviceWorker' in navigator) {
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/website/sw.js')
+                navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}')
                     .then(function(registration) {
                         console.log('ServiceWorker registration successful');
                     })
@@ -210,9 +211,13 @@
                         console.log('ServiceWorker registration failed: ', error);
                     });
             });
+        } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('ServiceWorker disabled in development mode');
         }
     </script>
-    -->
+    {% else %}
+    <!-- ServiceWorker disabled via _config.yml performance.enable_service_worker -->
+    {% endif %}
 
     <!-- Performance Monitoring & Core Web Vitals -->
     <script>

@@ -1,19 +1,34 @@
 # Site settings
 title: "All Saints Presbyterian Church"
-description: "A new church plant serving North County San Diego"
-url: "https://aspchurch.github.io"
-baseurl: "/website"
+description: "We exists to be a church and a people formed by the gospel of Jesus Christ"
+#description: "A new church plant serving North County San Diego"
+url: "https://www.aspchurch.com"
+baseurl: ""
 
 # Church information
 church:
   name: "All Saints Presbyterian Church"
-  tagline: "A new church plant serving North County San Diego"
+  tagline: "We exists to be a church and a people formed by the gospel of Jesus Christ"
   location: "Carlsbad, North County San Diego"
+
+# Performance & Optimization Settings
+# Set to false during development, true for production
+performance:
+  enable_service_worker: false     # Enables offline caching
+  enable_css_cache_busting: false  # Adds timestamps to CSS files
+  enable_image_optimization: false # Use optimized WebP images
+  enable_preload_optimization: true # Keep critical resource preloading
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
 
 # GitHub Pages configuration
 plugins:

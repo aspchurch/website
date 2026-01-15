@@ -1,3 +1,6 @@
+---
+---
+
 /* CSS Custom Properties (Variables) */
 :root {
     /* Primary Colors - Darker olive theme */
@@ -178,7 +181,7 @@ small {
 /* Homepage Hero Section */
 .hero-section {
     text-align: center;
-    padding: 6rem 2rem 5rem 2rem;
+    padding: 6rem 2rem 0.5rem 2rem;
     background: #f8f9fa;
     position: relative;
     overflow: hidden;
@@ -214,13 +217,30 @@ small {
     text-shadow: none;
 }
 
+.hero-service-info {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+}
+
+.hero-service-time {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-service-location {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 0;
+}
+
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
+    margin-bottom: 0;
+    margin-top: 1.5rem;
 }
 
 .btn {
@@ -261,6 +281,12 @@ small {
     border-color: var(--color-primary-light);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(26, 32, 44, 0.25);
+}
+
+.btn-hero-large {
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
 }
 
 /* Service Times Callout */
@@ -559,6 +585,27 @@ small {
     border-bottom-color: rgba(47, 79, 47, 0.3);
 }
 
+.footer-cta-link {
+    font-weight: 600;
+    text-decoration: underline;
+    border-bottom: none !important;
+}
+
+.footer-cta-link:hover {
+    text-decoration: underline;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-icon {
+    vertical-align: middle;
+    stroke: currentColor;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -764,3 +811,6 @@ small {
         margin-top: 2rem;
     }
 }
+
+/* Import beliefs page styling */
+@import "beliefs";
