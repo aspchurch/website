@@ -2,6 +2,7 @@
 layout: page
 title: "What We Believe"
 #subtitle: "Our biblical foundation and confessional commitments"
+description: "Westminster Confession beliefs at All Saints Presbyterian Church, Carlsbad. Our biblical foundation, reformed theology, and historic Christian creeds."
 permalink: /what-we-believe/
 ---
 
