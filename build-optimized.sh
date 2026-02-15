@@ -12,7 +12,7 @@ rm -rf _site/
 
 # Run Jekyll build
 echo "🚀 Building Jekyll site..."
-if bundle exec jekyll build --config _config.yml; then
+if JEKYLL_ENV=production bundle exec jekyll build --config _config.yml; then
     echo "✅ Jekyll build completed successfully"
 else
     echo "❌ Jekyll build failed"

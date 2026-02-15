@@ -105,7 +105,7 @@ performance:
 ```yaml
 performance:
   enable_service_worker: true      # Offline caching
-  enable_css_cache_busting: true   # Force fresh CSS updates  
+  enable_css_cache_busting: true   # Force fresh CSS updates
   enable_image_optimization: true  # Optimize images
 ```
 **Benefits:** Faster loading, offline support, optimized images
@@ -165,13 +165,43 @@ performance:
    git push origin main
    ```
 2. **Site updates automatically** in 2-3 minutes
-3. **Available at:** `https://aspchurch.github.io/website/`
+3. **Available at:** `https://www.aspchurch.com`
 
-### Production Optimization
-When ready for launch:
+### Production Build (For Manual Deployment or Sitemap)
+
+**Quick Command:**
+```bash
+make deploy
+```
+
+This generates a production build with:
+- ✅ Correct sitemap URLs (`https://www.aspchurch.com`)
+- ✅ Proper canonical links
+- ✅ Production-optimized assets
+- ✅ Files ready in `_site/` folder
+
+**Sitemap Location:** `_site/sitemap.xml`
+
+**Uploading Sitemap to Google Search Console:**
+1. Run `make deploy` to generate production build
+2. Go to [Google Search Console](https://search.google.com/search-console)
+3. Select your property (www.aspchurch.com)
+4. Navigate to **Sitemaps** in the left menu
+5. Enter `sitemap.xml` and click **Submit**
+6. Google will process it within 1-2 days
+
+**Alternative Commands:**
+```bash
+make build         # Production build
+make production    # Same as make build
+make build-dev     # Development build (localhost URLs)
+```
+
+### Production Optimization (Optional)
+For maximum performance:
 1. Set performance options to `true` in `_config.yml`
 2. Run `./optimize-images.sh` to compress images
-3. Run `./build-optimized.sh` for production build
+3. Run `./build-optimized.sh` for optimized build
 4. Restore `sw.js.production` → `sw.js` for offline caching
 
 ---

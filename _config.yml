@@ -41,6 +41,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor/
+  - doc/
+  - Makefile
+  - "*.sh"
+  - sw.js.production
 
 # Collections (for future content organization)
 collections:

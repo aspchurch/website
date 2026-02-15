@@ -2,6 +2,7 @@
 layout: page
 title: "Vision and Values"
 #subtitle: "Our mission and the principles that guide our church"
+description: "Our gospel-centered vision and values at All Saints Presbyterian Church, Carlsbad. Biblical ministry, reformed worship, and covenant community."
 permalink: /vision-and-values/
 ---
 
