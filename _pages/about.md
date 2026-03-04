@@ -12,6 +12,12 @@ permalink: /about/
 
 ---
 
+## {{ site.data.about.presbyterianism.title }}
+
+{{ site.data.about.presbyterianism.content }}
+
+---
+
 ## {{ site.data.about.what_to_expect.title }}
 
 {% for item in site.data.about.what_to_expect.first_time_visitors.items %}

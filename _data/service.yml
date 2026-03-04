@@ -18,3 +18,5 @@ service:
 childcare:
   title: "Childcare For Kids Ages 1-6"
   available: true
+  description: |
+    Children are welcome to stay with you for the opening portion of the service. After that, we invite children to childcare, or they’re welcome to remain with you in the service.

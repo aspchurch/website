@@ -2,7 +2,7 @@
 layout: page
 title: "Leadership"
 #subtitle: "Meet our pastoral leadership"
-description: "Meet Pastor Connor Underseth and the leadership team at All Saints OPC Church in Carlsbad, North County. Biblical teaching and pastoral care."
+description: "Meet Pastor Connor Underseth and the leadership team at All Saints Presbyterian Church in Carlsbad, North County. Biblical teaching and pastoral care."
 permalink: /leadership/
 ---
 

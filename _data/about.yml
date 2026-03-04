@@ -13,9 +13,21 @@ welcome:
 
     Whether you're exploring Christianity or seeking to serve Christ by serving His church, we invite you to worship with us.
 
+# Presbyterianism Section
+presbyterianism:
+  title: "What Is Presbyterianism?"
+  content: |
+    Presbyterianism is a way of organizing church leadership that seeks to reflect what we see in Scripture. It emphasizes shared pastoral care and accountability, rather than leadership resting on one person alone.
+
+    The term “Presbyterian” comes from the New Testament term for elder (presbyteros). In a Presbyterian church, the church is governed by a plurality of elders who share responsibility for the spiritual care and leadership of the congregation. The pastor(s) and elders are elected by the congregation to serve together to lead and shepherd the church. This elder team is called the “Session.”
+
+    Presbyterian churches also belong to a wider group of churches in the region, called a presbytery. This connection provides encouragement, guidance, accountability, and practical support, helping churches remain faithful, healthy, and connected.
+
+    You do not need to be Presbyterian to attend All Saints—everyone is welcome to worship, grow, and serve with us. Our hope is that, as you get to know our community, you’ll see how this approach to church life helps us remain faithful in unity and mission.
+
 # What to Expect Section
 what_to_expect:
-  title: "What to expect"
+  title: "What to Expect"
   first_time_visitors:
     title: ""
     items:

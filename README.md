@@ -128,7 +128,7 @@ performance:
 - `_pages/beliefs.md` - Church doctrine (3-column responsive layout)
 - `_pages/about.md` - Church info and pastor details
 - `_pages/leadership.md` - Leadership team
-- `_pages/meeting-time.md` - Service times and location
+- `_pages/plan-your-visit.md` - Service times and location
 - `_pages/give.md` - Donation and giving information
 - `_pages/vision-and-values.md` - Church mission and values
 
