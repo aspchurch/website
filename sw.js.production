@@ -19,7 +19,6 @@ const STATIC_ASSETS = [
     '/website/leadership/',
     '/website/what-we-believe/',
     '/website/vision-and-values/',
-    '/website/meeting-time/',
     '/website/give/',
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap'
 ];
