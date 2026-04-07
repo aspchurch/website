@@ -56,13 +56,13 @@
             "latitude": 33.1131188,
             "longitude": -117.2872516
         },
-        "telephone": "+17603858296",
+        "telephone": "{{ site.church.phone_e164 }}",
         "url": "{{ site.url }}{{ site.baseurl }}",
         "sameAs": [
-            "https://www.instagram.com/allsaintspresbyterianchurch/",
+            "{{ site.church.instagram }}",
             "https://www.google.com/maps/place/All+Saints+Presbyterian+Church/@33.1131188,-117.2872516,17z/data=!3m1!4b1!4m6!3m5!1s0x80dc73c2a9c0054b:0x3deed9dbd5072620!8m2!3d33.1131188!4d-117.2872516!16s%2Fg%2F11z0vbw63z"
         ],
-        "openingHours": "Su 17:00-18:15",
+        "openingHours": "Su {{ site.data.service.service.start_time | slice: 0, 5 }}-{{ site.data.service.service.end_time | slice: 0, 5 }}",
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Church Services",
@@ -268,9 +268,9 @@
                 <div class="footer-section">
                     <h4 class="footer-title">Connect</h4>
                     <p class="footer-info">
-                        <a href="mailto:info@aspchurch.com" class="footer-link">info@aspchurch.com</a><br>
-                        <a href="tel:+17603858296" class="footer-link">(760) 385-8296</a><br>
-                        <a href="https://www.instagram.com/allsaintspresbyterianchurch/" target="_blank" rel="noopener noreferrer" class="footer-link footer-social-link" aria-label="Instagram">
+                        <a href="mailto:{{ site.church.email }}" class="footer-link">{{ site.church.email }}</a><br>
+                        <a href="tel:{{ site.church.phone_e164 }}" class="footer-link">{{ site.church.phone }}</a><br>
+                        <a href="{{ site.church.instagram }}" target="_blank" rel="noopener noreferrer" class="footer-link footer-social-link" aria-label="Instagram">
                             <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>

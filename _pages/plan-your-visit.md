@@ -56,7 +56,7 @@ At {{ site.data.service.service.location.name }}
   <a href="https://www.google.com/maps/dir/?api=1&destination={{ site.data.service.service.location.address | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Directions</a>
 </p>
 
-**Questions?** Email [info@aspchurch.com](mailto:info@aspchurch.com) or call [(760) 385-8296](tel:+17603858296).
+**Questions?** Email [{{ site.church.email }}](mailto:{{ site.church.email }}) or call [{{ site.church.phone }}](tel:{{ site.church.phone_e164 }}).
 
 {% if site.data.service.childcare.available %}
 ## {{ site.data.service.childcare.title }}

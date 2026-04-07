@@ -7,9 +7,9 @@
 service:
   title: "SUNDAY SERVICE"
   intro: "We Meet Sunday Evenings At"
-  time: "5:00 PM"
-  start_time: "17:00:00"
-  end_time: "18:15:00"
+  time: "5:00 PM"         # Human-readable display — keep in sync with start_time below
+  start_time: "17:00:00" # 24h HH:MM:SS — used in JSON-LD schema
+  end_time: "18:15:00"   # 24h HH:MM:SS — used in JSON-LD schema
   location:
     name: "Redeemer By The Sea Lutheran Church"
     address: "6600 Black Rail Rd, Carlsbad CA 92011"
