@@ -32,34 +32,41 @@
     <!-- Church-specific structured data -->
     <meta name="geo.region" content="US-CA">
     <meta name="geo.placename" content="Carlsbad, North County, California">
-    <meta name="geo.position" content="33.1445;-117.2862">
-    <meta name="ICBM" content="33.1445, -117.2862">
+    <meta name="geo.position" content="{{ site.church.lat }};{{ site.church.lng }}">
+    <meta name="ICBM" content="{{ site.church.lat }}, {{ site.church.lng }}">
 
     <!-- Local business structured data -->
+    {% assign _oh_start = site.data.service.service.start_time | slice: 0, 5 %}
+    {% assign _oh_end = site.data.service.service.end_time | slice: 0, 5 %}
+    {% assign _opening_hours = "Su " | append: _oh_start | append: "-" | append: _oh_end %}
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Church",
-        "name": "All Saints Presbyterian Church",
-        "description": "A new church plant serving North County San Diego",
+        "name": {{ site.church.name | jsonify }},
+        "description": {{ site.description | jsonify }},
+        "image": {{ '/assets/images/og-image.png' | absolute_url | jsonify }},
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "6600 Black Rail Rd",
-            "addressLocality": "Carlsbad",
-            "addressRegion": "CA",
-            "postalCode": "92011",
+            "streetAddress": {{ site.data.service.service.location.street | jsonify }},
+            "addressLocality": {{ site.data.service.service.location.city | jsonify }},
+            "addressRegion": {{ site.data.service.service.location.state | jsonify }},
+            "postalCode": {{ site.data.service.service.location.zip | jsonify }},
             "addressCountry": "US"
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 33.1445,
-            "longitude": -117.2862
+            "latitude": {{ site.church.lat }},
+            "longitude": {{ site.church.lng }}
         },
-        "telephone": "",
-        "url": "{{ site.url }}{{ site.baseurl }}",
-        "sameAs": [],
-        "openingHours": "Su 17:00-18:30",
-        "hasOfferingCatalogue": {
+        "telephone": {{ site.church.phone_e164 | jsonify }},
+        "url": {{ site.url | append: site.baseurl | jsonify }},
+        "sameAs": [
+            {{ site.church.instagram | jsonify }}{% if site.church.google_maps_url %},
+            {{ site.church.google_maps_url | jsonify }}{% endif %}
+        ],
+        "openingHours": {{ _opening_hours | jsonify }},
+        "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Church Services",
             "itemListElement": [
@@ -73,6 +80,87 @@
                 }
             ]
         }
+    }
+    </script>
+
+    <!-- WebSite structured data (helps Google generate sitelinks) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ site.church.name | jsonify }},
+        "url": {{ site.url | append: site.baseurl | jsonify }}
+    }
+    </script>
+
+    <!-- SiteNavigationElement structured data (signals key pages to Google) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Site Navigation",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "SiteNavigationElement",
+                    "name": "About Us",
+                    "description": "Learn about our church plant in Carlsbad, North County San Diego. Reformed worship, biblical teaching, and community fellowship.",
+                    "url": {{ "/about/" | absolute_url | jsonify }}
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "SiteNavigationElement",
+                    "name": "Leadership",
+                    "description": "Meet Pastor Connor Underseth and the leadership team at All Saints Presbyterian Church.",
+                    "url": {{ "/leadership/" | absolute_url | jsonify }}
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                    "@type": "SiteNavigationElement",
+                    "name": "What We Believe",
+                    "description": "Westminster Confession beliefs at All Saints Presbyterian Church. Our biblical foundation and reformed theology.",
+                    "url": {{ "/what-we-believe/" | absolute_url | jsonify }}
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                    "@type": "SiteNavigationElement",
+                    "name": "Plan Your Visit",
+                    "description": "Service time, location, childcare info, and directions for visiting us in Carlsbad, CA.",
+                    "url": {{ "/plan-your-visit/" | absolute_url | jsonify }}
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                    "@type": "SiteNavigationElement",
+                    "name": "Vision and Values",
+                    "description": "Our gospel-centered vision and values. Biblical ministry, reformed worship, and covenant community.",
+                    "url": {{ "/vision-and-values/" | absolute_url | jsonify }}
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                    "@type": "SiteNavigationElement",
+                    "name": "Give",
+                    "description": "Support All Saints Presbyterian Church's gospel mission in Carlsbad and North County San Diego.",
+                    "url": {{ "/give/" | absolute_url | jsonify }}
+                }
+            }
+        ]
     }
     </script>
 
@@ -183,8 +271,9 @@
                 <div class="footer-section">
                     <h4 class="footer-title">Connect</h4>
                     <p class="footer-info">
-                        <a href="mailto:info@aspchurch.com" class="footer-link">info@aspchurch.com</a><br>
-                        <a href="https://www.instagram.com/allsaintspresbyterianchurch/" target="_blank" rel="noopener noreferrer" class="footer-link footer-social-link" aria-label="Instagram">
+                        <a href="mailto:{{ site.church.email }}" class="footer-link">{{ site.church.email }}</a><br>
+                        <a href="tel:{{ site.church.phone_e164 }}" class="footer-link">{{ site.church.phone }}</a><br>
+                        <a href="{{ site.church.instagram }}" target="_blank" rel="noopener noreferrer" class="footer-link footer-social-link" aria-label="Instagram">
                             <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
