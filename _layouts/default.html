@@ -48,10 +48,10 @@
         "image": {{ '/assets/images/og-image.png' | absolute_url | jsonify }},
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "6600 Black Rail Rd",
-            "addressLocality": "Carlsbad",
-            "addressRegion": "CA",
-            "postalCode": "92011",
+            "streetAddress": {{ site.data.service.service.location.street | jsonify }},
+            "addressLocality": {{ site.data.service.service.location.city | jsonify }},
+            "addressRegion": {{ site.data.service.service.location.state | jsonify }},
+            "postalCode": {{ site.data.service.service.location.zip | jsonify }},
             "addressCountry": "US"
         },
         "geo": {

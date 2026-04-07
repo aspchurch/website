@@ -17,7 +17,7 @@ make serve
 
 ## Content Editing Guide
 
-**For non-technical editors:** All page content lives in `_data/` YAML files. Edit those files safely without touching any code.
+**For non-technical editors:** Most page content lives in `_data/` YAML files. Church contact info (phone, email, Instagram) lives in `_config.yml` under `church:`. Edit those files safely without touching any code.
 
 ### Safe to Edit — `_data/` Files
 
@@ -29,6 +29,7 @@ make serve
 | `_data/vision.yml` | Vision & Values page |
 | `_data/service.yml` | Service time, location, childcare info |
 | `_data/giving.yml` | Give page — giving link and text |
+| `_config.yml` (`church:` section) | Phone, email, Instagram, coordinates, Google Maps URL |
 
 ### How to Edit on GitHub
 
@@ -144,8 +145,8 @@ To submit or re-submit after major changes:
 - [ ] **Google Business Profile** — Add photos, post regular updates, respond to reviews, fill out Q&A section
 - [ ] **Local citations** — Submit to PCA Church Finder (pcanet.org), Yelp, Apple Maps (Apple Business Connect), Facebook
 - [ ] **Backlinks** — Request a link from the PCA presbytery directory; reach out to local Carlsbad community sites
-- [ ] **Instagram handle** — Consider switching from `allsaintspresbyterianchurch` to `aspchurch` for consistency with the domain (see notes in conversation)
-- [ ] **Update `sameAs` schema** — If Instagram handle or GBP URL changes, update in `_layouts/default.html`
+- [ ] **Instagram handle** — Consider switching from `allsaintspresbyterianchurch` to `aspchurch` for consistency with the domain; update `instagram` in `_config.yml` if changed
+- [ ] **Update `sameAs` schema** — If GBP URL changes, update `google_maps_url` in `_config.yml`
 - [ ] **Google Analytics** — Set up GA4 property and add tracking to the site
 
 ### Content
