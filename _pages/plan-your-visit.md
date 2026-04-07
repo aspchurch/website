@@ -5,14 +5,20 @@ description: "Service time, location, childcare info, and directions for visitin
 permalink: /plan-your-visit/
 ---
 
+{% assign _weekday = site.time | date: "%u" | plus: 0 %}
+{% assign _days_ahead = 7 | minus: _weekday %}
+{% if _days_ahead == 0 %}{% assign _days_ahead = 7 %}{% endif %}
+{% assign _epoch = site.time | date: "%s" | plus: 0 %}
+{% assign _seconds_ahead = _days_ahead | times: 86400 %}
+{% assign _next_sunday = _epoch | plus: _seconds_ahead | date: "%Y-%m-%d" %}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Event",
     "name": "Sunday Worship Service",
     "description": "Weekly Sunday worship service at All Saints Presbyterian Church. Biblical preaching, reformed liturgy, and childcare for ages 1-6.",
-    "startDate": "2025-03-01T17:00:00-07:00",
-    "endDate": "2025-03-01T18:15:00-07:00",
+    "startDate": "{{ _next_sunday }}T17:00:00",
+    "endDate": "{{ _next_sunday }}T18:15:00",
     "eventSchedule": {
         "@type": "Schedule",
         "byDay": "https://schema.org/Sunday",
