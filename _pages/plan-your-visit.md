@@ -34,7 +34,7 @@ permalink: /plan-your-visit/
         }
     },
     "organizer": {
-        "@type": "Church",
+        "@type": "Organization",
         "name": "{{ site.church.name }}",
         "url": "{{ site.url }}{{ site.baseurl }}"
     },
