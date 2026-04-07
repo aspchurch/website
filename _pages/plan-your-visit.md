@@ -46,7 +46,8 @@ permalink: /plan-your-visit/
 
 {{ site.data.service.service.intro }}
 
-## {{ site.data.service.service.time }}
+{% assign _display_time = "2000-01-01 " | append: site.data.service.service.start_time | date: "%-I:%M %p" %}
+## {{ _display_time }}
 
 At {{ site.data.service.service.location.name }}
 
