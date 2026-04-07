@@ -36,13 +36,16 @@
     <meta name="ICBM" content="33.1131188, -117.2872516">
 
     <!-- Local business structured data -->
+    {% assign _oh_start = site.data.service.service.start_time | slice: 0, 5 %}
+    {% assign _oh_end = site.data.service.service.end_time | slice: 0, 5 %}
+    {% assign _opening_hours = "Su " | append: _oh_start | append: "-" | append: _oh_end %}
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Church",
-        "name": "{{ site.church.name }}",
-        "description": "{{ site.description }}",
-        "image": "{{ '/assets/images/og-image.png' | absolute_url }}",
+        "name": {{ site.church.name | jsonify }},
+        "description": {{ site.description | jsonify }},
+        "image": {{ '/assets/images/og-image.png' | absolute_url | jsonify }},
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "6600 Black Rail Rd",
@@ -56,13 +59,13 @@
             "latitude": 33.1131188,
             "longitude": -117.2872516
         },
-        "telephone": "{{ site.church.phone_e164 }}",
-        "url": "{{ site.url }}{{ site.baseurl }}",
+        "telephone": {{ site.church.phone_e164 | jsonify }},
+        "url": {{ site.url | append: site.baseurl | jsonify }},
         "sameAs": [
-            "{{ site.church.instagram }}",
+            {{ site.church.instagram | jsonify }},
             "https://www.google.com/maps/place/All+Saints+Presbyterian+Church/@33.1131188,-117.2872516,17z/data=!3m1!4b1!4m6!3m5!1s0x80dc73c2a9c0054b:0x3deed9dbd5072620!8m2!3d33.1131188!4d-117.2872516!16s%2Fg%2F11z0vbw63z"
         ],
-        "openingHours": "Su {{ site.data.service.service.start_time | slice: 0, 5 }}-{{ site.data.service.service.end_time | slice: 0, 5 }}",
+        "openingHours": {{ _opening_hours | jsonify }},
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Church Services",
@@ -85,8 +88,8 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "{{ site.church.name }}",
-        "url": "{{ site.url }}{{ site.baseurl }}"
+        "name": {{ site.church.name | jsonify }},
+        "url": {{ site.url | append: site.baseurl | jsonify }}
     }
     </script>
 

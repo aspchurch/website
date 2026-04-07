@@ -14,8 +14,8 @@ permalink: /plan-your-visit/
     "eventSchedule": {
         "@type": "Schedule",
         "byDay": "https://schema.org/Sunday",
-        "startTime": "{{ site.data.service.service.start_time }}",
-        "endTime": "{{ site.data.service.service.end_time }}",
+        "startTime": {{ site.data.service.service.start_time | jsonify }},
+        "endTime": {{ site.data.service.service.end_time | jsonify }},
         "scheduleTimezone": "America/Los_Angeles",
         "repeatFrequency": "P1W"
     },
@@ -23,20 +23,20 @@ permalink: /plan-your-visit/
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {
         "@type": "Place",
-        "name": "{{ site.data.service.service.location.name }}",
+        "name": {{ site.data.service.service.location.name | jsonify }},
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "{{ site.data.service.service.location.street }}",
-            "addressLocality": "{{ site.data.service.service.location.city }}",
-            "addressRegion": "{{ site.data.service.service.location.state }}",
-            "postalCode": "{{ site.data.service.service.location.zip }}",
+            "streetAddress": {{ site.data.service.service.location.street | jsonify }},
+            "addressLocality": {{ site.data.service.service.location.city | jsonify }},
+            "addressRegion": {{ site.data.service.service.location.state | jsonify }},
+            "postalCode": {{ site.data.service.service.location.zip | jsonify }},
             "addressCountry": "US"
         }
     },
     "organizer": {
         "@type": "Organization",
-        "name": "{{ site.church.name }}",
-        "url": "{{ site.url }}{{ site.baseurl }}"
+        "name": {{ site.church.name | jsonify }},
+        "url": {{ site.url | append: site.baseurl | jsonify }}
     },
     "isAccessibleForFree": true
 }
