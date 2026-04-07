@@ -41,7 +41,8 @@
         "@context": "https://schema.org",
         "@type": "Church",
         "name": "All Saints Presbyterian Church",
-        "description": "A new church plant serving North County San Diego",
+        "description": "{{ site.description }}",
+        "image": "{{ '/assets/images/og-image.png' | absolute_url }}",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "6600 Black Rail Rd",
@@ -52,14 +53,17 @@
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 33.1445,
-            "longitude": -117.2862
+            "latitude": 33.1131188,
+            "longitude": -117.2872516
         },
-        "telephone": "",
+        "telephone": "+17603858296",
         "url": "{{ site.url }}{{ site.baseurl }}",
-        "sameAs": [],
+        "sameAs": [
+            "https://www.instagram.com/allsaintspresbyterianchurch/",
+            "https://www.google.com/maps/place/All+Saints+Presbyterian+Church/@33.1131188,-117.2872516,17z/data=!3m1!4b1!4m6!3m5!1s0x80dc73c2a9c0054b:0x3deed9dbd5072620!8m2!3d33.1131188!4d-117.2872516!16s%2Fg%2F11z0vbw63z"
+        ],
         "openingHours": "Su 17:00-18:30",
-        "hasOfferingCatalogue": {
+        "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Church Services",
             "itemListElement": [
@@ -73,6 +77,69 @@
                 }
             ]
         }
+    }
+    </script>
+
+    <!-- WebSite structured data (helps Google generate sitelinks) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.church.name }}",
+        "url": "{{ site.url }}{{ site.baseurl }}"
+    }
+    </script>
+
+    <!-- SiteNavigationElement structured data (signals key pages to Google) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Site Navigation",
+        "itemListElement": [
+            {
+                "@type": "SiteNavigationElement",
+                "position": 1,
+                "name": "About Us",
+                "description": "Learn about our church plant in Carlsbad, North County San Diego. Reformed worship, biblical teaching, and community fellowship.",
+                "url": "{{ site.url }}{{ site.baseurl }}/about/"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 2,
+                "name": "Leadership",
+                "description": "Meet Pastor Connor Underseth and the leadership team at All Saints Presbyterian Church.",
+                "url": "{{ site.url }}{{ site.baseurl }}/leadership/"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 3,
+                "name": "What We Believe",
+                "description": "Westminster Confession beliefs at All Saints Presbyterian Church. Our biblical foundation and reformed theology.",
+                "url": "{{ site.url }}{{ site.baseurl }}/what-we-believe/"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 4,
+                "name": "Plan Your Visit",
+                "description": "Service time, location, childcare info, and directions for visiting us in Carlsbad, CA.",
+                "url": "{{ site.url }}{{ site.baseurl }}/plan-your-visit/"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 5,
+                "name": "Vision and Values",
+                "description": "Our gospel-centered vision and values. Biblical ministry, reformed worship, and covenant community.",
+                "url": "{{ site.url }}{{ site.baseurl }}/vision-and-values/"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 6,
+                "name": "Give",
+                "description": "Support All Saints Presbyterian Church's gospel mission in Carlsbad and North County San Diego.",
+                "url": "{{ site.url }}{{ site.baseurl }}/give/"
+            }
+        ]
     }
     </script>
 
@@ -184,6 +251,7 @@
                     <h4 class="footer-title">Connect</h4>
                     <p class="footer-info">
                         <a href="mailto:info@aspchurch.com" class="footer-link">info@aspchurch.com</a><br>
+                        <a href="tel:+17603858296" class="footer-link">(760) 385-8296</a><br>
                         <a href="https://www.instagram.com/allsaintspresbyterianchurch/" target="_blank" rel="noopener noreferrer" class="footer-link footer-social-link" aria-label="Instagram">
                             <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>

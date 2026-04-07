@@ -1,6 +1,6 @@
 # Site settings
 title: "All Saints Presbyterian Church"
-description: "We exists to be a church and a people formed by the gospel of Jesus Christ"
+description: "We exist to be a church and a people formed by the gospel of Jesus Christ"
 #description: "A new church plant serving North County San Diego"
 url: "https://www.aspchurch.com"
 baseurl: ""
@@ -8,7 +8,7 @@ baseurl: ""
 # Church information
 church:
   name: "All Saints Presbyterian Church"
-  tagline: "We exists to be a church and a people formed by the gospel of Jesus Christ"
+  tagline: "We exist to be a church and a people formed by the gospel of Jesus Christ"
   location: "Carlsbad, North County San Diego"
 
 # Performance & Optimization Settings
