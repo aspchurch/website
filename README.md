@@ -6,7 +6,7 @@ A Jekyll-based website for All Saints Presbyterian Church, hosted on GitHub Page
 
 ```bash
 # Install dependencies (first time only)
-bundle install
+make install
 
 # Local development server with live reload
 make serve
@@ -74,7 +74,7 @@ online_giving:
 ### Do Not Edit
 - Files in `_layouts/` or ending in `.html`
 - Lines starting with `{%`, `{{`, or `<`
-- `_config.yml` (unless you know what you're doing)
+- `_config.yml` — **except** the `church:` section (phone, email, Instagram, coordinates, Google Maps URL), which is safe to update
 
 ---
 
