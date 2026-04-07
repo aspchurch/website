@@ -62,8 +62,8 @@
         "telephone": {{ site.church.phone_e164 | jsonify }},
         "url": {{ site.url | append: site.baseurl | jsonify }},
         "sameAs": [
-            {{ site.church.instagram | jsonify }},
-            "https://www.google.com/maps/place/All+Saints+Presbyterian+Church/@33.1131188,-117.2872516,17z/data=!3m1!4b1!4m6!3m5!1s0x80dc73c2a9c0054b:0x3deed9dbd5072620!8m2!3d33.1131188!4d-117.2872516!16s%2Fg%2F11z0vbw63z"
+            {{ site.church.instagram | jsonify }}{% if site.church.google_maps_url %},
+            {{ site.church.google_maps_url | jsonify }}{% endif %}
         ],
         "openingHours": {{ _opening_hours | jsonify }},
         "hasOfferCatalog": {

@@ -16,6 +16,7 @@ church:
   instagram: "https://www.instagram.com/allsaintspresbyterianchurch/"
   lat: 33.1131188   # Coordinates — keep in sync with service.yml map_embed
   lng: -117.2872516
+  google_maps_url: "https://www.google.com/maps/place/All+Saints+Presbyterian+Church/@33.1131188,-117.2872516,17z/data=!3m1!4b1!4m6!3m5!1s0x80dc73c2a9c0054b:0x3deed9dbd5072620!8m2!3d33.1131188!4d-117.2872516!16s%2Fg%2F11z0vbw63z"
 
 # Performance & Optimization Settings
 # Set to false during development, true for production

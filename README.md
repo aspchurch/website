@@ -43,9 +43,14 @@ make serve
 **Service time** (`_data/service.yml`):
 ```yaml
 service:
-  time: "5:00 PM"
+  start_time: "17:00:00"  ← Change start time here (24h HH:MM:SS)
+  end_time: "18:15:00"    ← Change end time here
   location:
-    address: "6600 Black Rail Rd, Carlsbad CA 92011"
+    address: "6600 Black Rail Rd, Carlsbad CA 92011"  ← Single-line display
+    street: "6600 Black Rail Rd"  ← Keep in sync with address above
+    city: "Carlsbad"
+    state: "CA"
+    zip: "92011"
 ```
 
 **Pastor info** (`_data/leadership.yml`):
