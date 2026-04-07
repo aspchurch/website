@@ -5,25 +5,17 @@ description: "Service time, location, childcare info, and directions for visitin
 permalink: /plan-your-visit/
 ---
 
-{% assign _weekday = site.time | date: "%u" | plus: 0 %}
-{% assign _days_ahead = 7 | minus: _weekday %}
-{% if _days_ahead == 0 %}{% assign _days_ahead = 7 %}{% endif %}
-{% assign _epoch = site.time | date: "%s" | plus: 0 %}
-{% assign _seconds_ahead = _days_ahead | times: 86400 %}
-{% assign _next_sunday = _epoch | plus: _seconds_ahead | date: "%Y-%m-%d" %}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "Event",
+    "@type": "EventSeries",
     "name": "Sunday Worship Service",
     "description": "Weekly Sunday worship service at All Saints Presbyterian Church. Biblical preaching, reformed liturgy, and childcare for ages 1-6.",
-    "startDate": "{{ _next_sunday }}T17:00:00",
-    "endDate": "{{ _next_sunday }}T18:15:00",
     "eventSchedule": {
         "@type": "Schedule",
         "byDay": "https://schema.org/Sunday",
-        "startTime": "17:00:00",
-        "endTime": "18:15:00",
+        "startTime": "{{ site.data.service.service.start_time }}",
+        "endTime": "{{ site.data.service.service.end_time }}",
         "scheduleTimezone": "America/Los_Angeles",
         "repeatFrequency": "P1W"
     },
@@ -31,20 +23,20 @@ permalink: /plan-your-visit/
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {
         "@type": "Place",
-        "name": "Redeemer By The Sea Lutheran Church",
+        "name": "{{ site.data.service.service.location.name }}",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "6600 Black Rail Rd",
-            "addressLocality": "Carlsbad",
-            "addressRegion": "CA",
-            "postalCode": "92011",
+            "streetAddress": "{{ site.data.service.service.location.street }}",
+            "addressLocality": "{{ site.data.service.service.location.city }}",
+            "addressRegion": "{{ site.data.service.service.location.state }}",
+            "postalCode": "{{ site.data.service.service.location.zip }}",
             "addressCountry": "US"
         }
     },
     "organizer": {
         "@type": "Church",
-        "name": "All Saints Presbyterian Church",
-        "url": "https://www.aspchurch.com"
+        "name": "{{ site.church.name }}",
+        "url": "{{ site.url }}{{ site.baseurl }}"
     },
     "isAccessibleForFree": true
 }
