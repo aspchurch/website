@@ -3,6 +3,13 @@ layout: default
 ---
 
 <section class="hero-section">
+    <video class="hero-bg-video" autoplay muted loop playsinline
+           poster="{{ '/assets/images/hero-roller-poster.jpg' | relative_url }}">
+        <source src="{{ '/assets/videos/hero-roller.webm' | relative_url }}" type="video/webm">
+        <source src="{{ '/assets/videos/hero-roller.mp4' | relative_url }}" type="video/mp4">
+    </video>
+    <div class="hero-bg-overlay"></div>
+
     <h1 class="hero-title">{{ site.church.name }}</h1>
     <p class="hero-subtitle">{{ site.church.tagline }}</p>
 
@@ -19,6 +26,8 @@ layout: default
 
 {% if site.welcome_video.youtube_id != "" %}
 <section class="welcome-video-section">
+    <h2 class="welcome-video-title">Hear Directly From Our Pastor</h2>
+    <p class="welcome-video-subtitle">A personal word for anyone considering All Saints for the first time.</p>
     <div class="video-responsive">
         <iframe
             src="https://www.youtube-nocookie.com/embed/{{ site.welcome_video.youtube_id }}?rel=0&modestbranding=1"
