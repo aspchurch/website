@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffprobe -v error -show_entries stream=width,height -of default=noprint_wrappers=0 assets/images/family.webp)"
+    ]
+  }
+}

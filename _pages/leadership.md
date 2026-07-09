@@ -15,8 +15,8 @@ permalink: /leadership/
      alt="{{ leader.image_alt }}"
      loading="lazy"
      style="max-width: 100%; height: auto; border-radius: 8px;"
-     width="600"
-     height="400">
+     width="616"
+     height="460">
 
 {{ leader.bio }}
 

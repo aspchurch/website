@@ -313,49 +313,51 @@
     <script>
         // Performance timing and Core Web Vitals monitoring
         window.addEventListener('load', function() {
-            if ('performance' in window) {
-                const perfData = performance.timing;
-                const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-                console.log('Page load time:', loadTime + 'ms');
+            if ('performance' in window && 'PerformanceObserver' in window) {
+                const [nav] = performance.getEntriesByType('navigation');
 
-                // Core Web Vitals monitoring
-                if ('PerformanceObserver' in window) {
-                    // Largest Contentful Paint (LCP)
-                    new PerformanceObserver((entryList) => {
-                        const entries = entryList.getEntries();
-                        const lastEntry = entries[entries.length - 1];
-                        console.log('LCP:', Math.round(lastEntry.startTime), 'ms');
-                    }).observe({ entryTypes: ['largest-contentful-paint'] });
+                if (nav) {
+                    const loadTime = nav.loadEventEnd;
+                    console.log('Page load time:', Math.round(loadTime) + 'ms');
+                }
 
-                    // First Input Delay (FID)
-                    new PerformanceObserver((entryList) => {
-                        for (const entry of entryList.getEntries()) {
-                            console.log('FID:', Math.round(entry.processingStart - entry.startTime), 'ms');
+                // Largest Contentful Paint (LCP)
+                new PerformanceObserver((entryList) => {
+                    const entries = entryList.getEntries();
+                    const lastEntry = entries[entries.length - 1];
+                    console.log('LCP:', Math.round(lastEntry.startTime), 'ms');
+                }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+                // First Input Delay (FID)
+                new PerformanceObserver((entryList) => {
+                    for (const entry of entryList.getEntries()) {
+                        console.log('FID:', Math.round(entry.processingStart - entry.startTime), 'ms');
+                    }
+                }).observe({ entryTypes: ['first-input'] });
+
+                // Cumulative Layout Shift (CLS)
+                let clsValue = 0;
+                new PerformanceObserver((entryList) => {
+                    for (const entry of entryList.getEntries()) {
+                        if (!entry.hadRecentInput) {
+                            clsValue += entry.value;
                         }
-                    }).observe({ entryTypes: ['first-input'] });
+                    }
+                    console.log('CLS:', Math.round(clsValue * 1000) / 1000);
+                }).observe({ entryTypes: ['layout-shift'] });
 
-                    // Cumulative Layout Shift (CLS)
-                    let clsValue = 0;
-                    new PerformanceObserver((entryList) => {
-                        for (const entry of entryList.getEntries()) {
-                            if (!entry.hadRecentInput) {
-                                clsValue += entry.value;
-                            }
-                        }
-                        console.log('CLS:', Math.round(clsValue * 1000) / 1000);
-                    }).observe({ entryTypes: ['layout-shift'] });
-
+                if (nav) {
                     // Time to First Byte (TTFB)
-                    const ttfb = perfData.responseStart - perfData.navigationStart;
-                    console.log('TTFB:', ttfb + 'ms');
+                    const ttfb = nav.responseStart;
+                    console.log('TTFB:', Math.round(ttfb) + 'ms');
 
                     // DOM Content Loaded
-                    const dcl = perfData.domContentLoadedEventEnd - perfData.navigationStart;
-                    console.log('DOM Content Loaded:', dcl + 'ms');
+                    const dcl = nav.domContentLoadedEventEnd;
+                    console.log('DOM Content Loaded:', Math.round(dcl) + 'ms');
 
                     // Performance scoring for development
                     const score = {
-                        loadTime: loadTime < 3000 ? '✅' : loadTime < 5000 ? '⚠️' : '❌',
+                        loadTime: nav.loadEventEnd < 3000 ? '✅' : nav.loadEventEnd < 5000 ? '⚠️' : '❌',
                         ttfb: ttfb < 200 ? '✅' : ttfb < 500 ? '⚠️' : '❌'
                     };
                     console.log('Performance Score:', score);
