@@ -24,15 +24,11 @@ layout: default
     </div>
 </section>
 
-{% if site.welcome_video.youtube_id != "" %}
 <section class="welcome-video-section">
     <div class="video-responsive">
-        <iframe
-            src="https://www.youtube-nocookie.com/embed/{{ site.welcome_video.youtube_id }}?rel=0&modestbranding=1"
-            title="Welcome to {{ site.church.name }}"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+        <video controls preload="none"
+               poster="{{ '/assets/images/welcome-video-poster.jpg' | relative_url }}">
+            <source src="{{ '/assets/videos/welcome-video.mp4' | relative_url }}" type="video/mp4">
+        </video>
     </div>
 </section>
-{% endif %}

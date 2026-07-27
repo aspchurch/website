@@ -4,14 +4,80 @@ How the two homepage videos are hosted, and why, for whoever touches this next.
 
 ---
 
-## 1. Welcome video (YouTube)
+## 1. Welcome video
 
-A multi-minute conversation with the pastor. Source file was 646MB — far too
-large to commit to the repo or serve from GitHub Pages (GitHub hard-blocks
-pushes over 100MB per file, and Pages has no CDN/adaptive streaming for video
-anyway). Hosted on YouTube instead and embedded via iframe.
+A multi-minute conversation with the pastor. **Currently self-hosted** —
+originally hosted on YouTube, moved to a self-hosted `<video>` element once
+compression proved the file could be shrunk small enough for the repo (see
+below). Section 1a covers the current setup; 1b keeps the original YouTube
+notes for reference in case that path is ever revisited.
 
-### Channel setup
+### 1a. Current: self-hosted
+
+Source file was already H.264 (not a raw/mezzanine codec like the Roller),
+but still delivery-bloated at a much higher bitrate than a talking-head video
+needs:
+
+| | Source (H.264) | Compressed (H.264 mp4) |
+|---|---|---|
+| Size | 646 MB | 58.4 MB |
+| Bitrate | ~18.5 Mbps | ~1.5 Mbps |
+| Duration | 4:48 (287.5s) | 4:48 (287.5s) |
+| Audio | AAC ~317kbps | AAC 128kbps (kept — this video has spoken dialogue) |
+
+That's a **~91% size reduction**, comfortably under GitHub's 100MB
+hard-block-per-file limit.
+
+**Compression command:**
+
+```bash
+ffmpeg -i source.mp4 -vf "scale=1920:-2" \
+  -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p \
+  -c:a aac -b:a 128k -movflags +faststart \
+  welcome-video.mp4
+
+# Poster frame
+ffmpeg -ss 2 -i welcome-video.mp4 -frames:v 1 -q:v 3 welcome-video-poster.jpg
+```
+
+Unlike the Roller, audio is kept (`-c:a aac -b:a 128k`) since this video has
+spoken content — no `-an` here.
+
+**Gotcha hit while doing this**: the first download of the source file was
+silently corrupted/truncated (container metadata still claimed the full
+4:48 duration, but only the first ~85 seconds actually decoded — the rest
+threw `Invalid NAL unit size` / `Invalid data found when processing input`).
+`ls -la` and `ffprobe`'s duration field both looked fine; it only surfaced
+when actually decoding the whole file. Before trusting a large downloaded
+video, verify it end-to-end:
+
+```bash
+ffmpeg -v error -i source.mp4 -f null -   # any output here = corruption/truncation
+```
+
+**Files:**
+- `assets/videos/welcome-video.mp4`, `assets/images/welcome-video-poster.jpg`
+- `index.html`: native `<video controls preload="none" poster="...">` — no
+  YouTube iframe, no third-party branding/logo/links. `preload="none"` means
+  visitors who never click play cost zero video bandwidth.
+- No WebM version — VP9 encoding at 1080p for a ~5 minute video ran at
+  roughly 0.2x realtime (~20+ min), and the size gain over the H.264 mp4
+  wasn't worth the wait. Revisit if that ever changes (faster hardware,
+  more patience, etc.) — the Roller's WebM command below is the template.
+
+**Why the move off YouTube**: one of the objectives was removing YouTube's
+required embed chrome (channel name/title overlay, "Watch on YouTube"
+button, copy-link icon, watermark) — none of which can be turned off via
+embed parameters (see 1b). Self-hosting was originally ruled out only
+because the *raw* 646MB file couldn't fit in the repo; once compressed the
+same way as the Roller, it easily could.
+
+### 1b. Previously: YouTube (kept for reference)
+
+Superseded by 1a, but keeping this in case self-hosting ever becomes
+impractical (e.g. bandwidth) and YouTube needs to come back into play.
+
+**Channel setup:**
 
 - Created as a **Brand Account** (not a personal channel) under the church's
   Google Workspace account, so channel ownership isn't tied to one person's
@@ -27,9 +93,7 @@ anyway). Hosted on YouTube instead and embedded via iframe.
 - Channel renames are rate-limited by YouTube ("too many changes, try again
   in 24 hours") — settle on the final name before saving.
 
-### Embed
-
-Config-driven so the section disappears if no video is set:
+**Embed** (config-driven so the section disappears if no video is set):
 
 - `_config.yml`: `welcome_video.youtube_id` (the 11-character ID from the
   video's URL).
