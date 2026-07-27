@@ -56,6 +56,28 @@ leadership_team:
         - "Surfing"
         - "Home cooking"
 
+# Session (Elders)
+session:
+  - name: "Jonathan Moersch"
+    title: "Rev."
+    email: ""
+    image: "jonathan-picture.png"
+    image_alt: "Rev. Jonathan Moersch"
+    image_width: 1920
+    image_height: 1920
+    bio: |
+      Rev. Jonathan Moersch serves as the pastor of Trinity Orthodox Presbyterian Church in San Clemente, CA.
+
+  - name: "Jason Vartanian"
+    title: "Rev. Dr."
+    email: ""
+    image: "jason-picture.png"
+    image_alt: "Rev. Dr. Jason Vartanian"
+    image_width: 640
+    image_height: 960
+    bio: |
+      Rev. Dr. Jason Vartanian serves as the pastor of Bayview Presbyterian Church in Chula Vista, CA.
+
 # Future leadership members can be added here
 # - name: "Future Pastor Name"
 #   title: "Associate Pastor"
