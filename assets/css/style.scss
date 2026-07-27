@@ -18,9 +18,6 @@
     --color-background: #ffffff;
     --color-background-alt: #f8f9fa;
     --color-border: #d1d5db;
-
-    /* Legacy colors for gradual transition */
-    --color-old-green: #6b8e5a;
 }
 
 /* Reset and base styles */
@@ -308,81 +305,6 @@ small {
     font-size: 1.25rem;
     padding: 1rem 2.5rem;
     border-radius: 12px;
-}
-
-/* Service Times Callout */
-.service-callout {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    margin-top: 2rem;
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.hero-cards {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.hero-card {
-    background: #ffffff;
-    backdrop-filter: none;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(47, 79, 47, 0.1);
-    flex: 1;
-    min-width: 320px;
-    max-width: 350px;
-}
-
-.serve-card {
-    background: #e9ecef;
-    border-color: #ced4da;
-}
-
-.hero-card h3 {
-    color: var(--color-primary);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-family: 'Libre Baskerville', serif;
-}
-
-.hero-card p {
-    color: var(--color-text);
-    font-size: 0.95rem;
-    margin: 0;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-.address-line {
-    white-space: nowrap;
-    overflow-wrap: break-word;
-}
-
-.service-callout h3 {
-    color: white;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-}
-
-.service-callout p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-    margin: 0;
-    font-weight: 400;
 }
 
 /* Welcome Section */
@@ -924,27 +846,7 @@ small {
         height: 36px;
     }
 
-    .hero-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-
-    .hero-card {
-        padding: 1.25rem 1.5rem;
-        min-width: auto;
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .hero-card h3 {
-        font-size: 1rem;
-    }
-
-    .hero-card p {
-        font-size: 0.9rem;
-    }    .welcome-section {
+    .welcome-section {
         padding: 3rem 1.5rem;
     }
 
