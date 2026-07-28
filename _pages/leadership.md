@@ -24,7 +24,7 @@ permalink: /leadership/
 
 ## Session
 
-All Saints Presbyterian Church is a mission work of the Presbytery of Southern California of the Orthodox Presbyterian Church. The leadership team, known as the session, is lead by Rev. M. Connor Underseth as the organizing pastor, Rev. Jonathan Moersch, and Rev. Dr. Jason Vartanian.
+All Saints Presbyterian Church is a mission work of the Presbytery of Southern California of the Orthodox Presbyterian Church. The leadership team, known as the session, is led by Rev. M. Connor Underseth as the organizing pastor, Rev. Jonathan Moersch, and Rev. Dr. Jason Vartanian.
 
 <div markdown="1" style="display: flex; flex-wrap: wrap; gap: 2rem;">
 {% for elder in site.data.leadership.session %}

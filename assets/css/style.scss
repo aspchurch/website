@@ -216,6 +216,12 @@ small {
     z-index: 1;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg-video {
+        display: none;
+    }
+}
+
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;

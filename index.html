@@ -93,7 +93,10 @@ layout: default
 
         function togglePlay() {
             if (video.paused) {
-                video.play();
+                var playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function () {});
+                }
             } else {
                 video.pause();
             }

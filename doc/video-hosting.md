@@ -57,9 +57,10 @@ ffmpeg -v error -i source.mp4 -f null -   # any output here = corruption/truncat
 
 **Files:**
 - `assets/videos/welcome-video.mp4`, `assets/images/welcome-video-poster.jpg`
-- `index.html`: native `<video controls preload="none" poster="...">` — no
-  YouTube iframe, no third-party branding/logo/links. `preload="none"` means
-  visitors who never click play cost zero video bandwidth.
+- `index.html`: custom `<video>` player (overlay + custom controls) with
+  `preload="none"` and a `poster="..."` placeholder — no YouTube iframe, no
+  third-party branding/logo/links. `preload="none"` means visitors who never
+  click play cost zero video bandwidth.
 - No WebM version — VP9 encoding at 1080p for a ~5 minute video ran at
   roughly 0.2x realtime (~20+ min), and the size gain over the H.264 mp4
   wasn't worth the wait. Revisit if that ever changes (faster hardware,

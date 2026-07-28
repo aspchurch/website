@@ -192,14 +192,21 @@
         .navbar{padding:1rem 0}.nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
         .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--navy);font-weight:600;font-size:1.125rem}
         .logo{margin-right:0.75rem;border-radius:50%}
-        .hero-section{background:#f8f9fa;color:var(--color-primary);text-align:center;padding:6rem 2rem 5rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center}
-        .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 1rem;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
-        .hero-subtitle{font-size:clamp(1rem,3vw,1.5rem);margin:0 0 2rem;opacity:0.95;max-width:600px}
-        .hero-buttons{display:flex;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;justify-content:center}
-        .btn{display:inline-block;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;transition:all 0.3s ease;border:2px solid transparent}
-        .btn-primary{background:var(--color-primary);color:white;border-color:var(--color-primary);font-weight:700}
-        .btn:not(.btn-primary){background:rgba(26,46,26,0.1);color:var(--color-primary);border-color:var(--color-primary);backdrop-filter:none}
-        @media (max-width:768px){.nav-container{padding:0 1rem}.hero-section{padding:4rem 1rem 3rem}}
+        .hero-section{text-align:center;padding:6rem 2rem 0.5rem;background:#1a2e1a;color:#fff;position:relative;overflow:hidden}
+        .hero-section>*{position:relative;z-index:2}
+        .hero-bg-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+        .hero-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(10,20,10,0.55);z-index:1}
+        .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 1.5rem;letter-spacing:0.5px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.4)}
+        .hero-subtitle{font-size:clamp(1rem,3vw,1.25rem);margin:0 0 2rem;color:rgba(255,255,255,0.92);text-shadow:0 1px 6px rgba(0,0,0,0.4)}
+        .hero-service-info{margin:1rem 0 0.75rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,0.4)}
+        .hero-service-time{font-size:1.3rem;margin-bottom:0.5rem}
+        .hero-service-location{font-size:1.1rem;color:rgba(255,255,255,0.88)}
+        .hero-buttons{display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center}
+        .btn{display:inline-block;padding:1.2rem 2.5rem;text-decoration:none;border:2px solid var(--color-primary);background:transparent;color:var(--color-primary);font-weight:600;letter-spacing:1px;text-transform:uppercase;min-width:200px;font-size:0.9rem}
+        .btn-primary{background:var(--color-primary);border-color:var(--color-primary);color:#fff;font-weight:700}
+        .btn-hero-large{font-size:1.25rem;padding:1rem 2.5rem;border-radius:12px}
+        @media (prefers-reduced-motion:reduce){.hero-bg-video{display:none}}
+        @media (max-width:768px){.nav-container{padding:0 1rem}.hero-section{padding:4rem 1.5rem 3rem}}
     </style>
 
     <!-- CSS Loading Strategy -->
