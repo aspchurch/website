@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
-    <meta name="keywords" content="presbyterian church Carlsbad, North Country presbyterian church, reform church carlsbad, North Country reform church, church plant Carlsbad, North Country church plant, PCA church Carlsbad, reformed worship Carlsbad">
+    <meta name="keywords" content="presbyterian church Carlsbad, North County presbyterian church, reform church carlsbad, North County reform church, church plant Carlsbad, North County church plant, OPC church Carlsbad, reformed worship Carlsbad">
 
     <!-- SEO and Social Media Meta Tags -->
     <meta name="author" content="{{ site.church.name }}">
@@ -179,11 +179,11 @@
     {% endif %}
 
     <!-- Optimized Google Fonts Loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- Critical CSS (inline for performance) -->
     <style>
-        :root{--navy:#1a365d;--blue:#4299e1;--color-primary:#1a2e1a;--color-primary-light:#2d4a2d;--light-blue:#90cdf4;--gray-50:#f7fafc;--gray-100:#edf2f7;--gray-800:#2d3748}
+        :root{--navy:#1a365d;--color-primary:#1a2e1a;--color-primary-light:#2d4a2d;--gray-50:#f7fafc;--gray-100:#edf2f7;--gray-800:#2d3748}
         *,*::before,*::after{box-sizing:border-box}
         body{font-family:'Lora',Georgia,serif;margin:0;padding:0;background:var(--gray-100);line-height:1.6;color:var(--gray-800)}
         a{color:var(--color-primary-light);transition:color 0.3s ease;text-decoration:none}
@@ -192,16 +192,21 @@
         .navbar{padding:1rem 0}.nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
         .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--navy);font-weight:600;font-size:1.125rem}
         .logo{margin-right:0.75rem;border-radius:50%}
-        .hero-section{background:#f8f9fa;color:var(--color-primary);text-align:center;padding:6rem 2rem 5rem;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center}
-        .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 1rem;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
-        .hero-subtitle{font-size:clamp(1rem,3vw,1.5rem);margin:0 0 2rem;opacity:0.95;max-width:600px}
-        .hero-buttons{display:flex;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;justify-content:center}
-        .btn{display:inline-block;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;transition:all 0.3s ease;border:2px solid transparent}
-        .btn-primary{background:var(--color-primary);color:white;border-color:var(--color-primary);font-weight:700}
-        .btn:not(.btn-primary){background:rgba(26,46,26,0.1);color:var(--color-primary);border-color:var(--color-primary);backdrop-filter:none}
-        .hero-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:800px;width:100%}
-        .hero-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:2rem;text-align:center}
-        @media (max-width:768px){.nav-container{padding:0 1rem}.hero-section{padding:4rem 1rem 3rem}.hero-cards{grid-template-columns:1fr;gap:1rem}.hero-card{padding:1.5rem}}
+        .hero-section{text-align:center;padding:6rem 2rem 0.5rem;background:#1a2e1a;color:#fff;position:relative;overflow:hidden}
+        .hero-section>*{position:relative;z-index:2}
+        .hero-bg-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+        .hero-bg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(10,20,10,0.55);z-index:1}
+        .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin:0 0 1.5rem;letter-spacing:0.5px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.4)}
+        .hero-subtitle{font-size:clamp(1rem,3vw,1.25rem);margin:0 0 2rem;color:rgba(255,255,255,0.92);text-shadow:0 1px 6px rgba(0,0,0,0.4)}
+        .hero-service-info{margin:1rem 0 0.75rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,0.4)}
+        .hero-service-time{font-size:1.3rem;margin-bottom:0.5rem}
+        .hero-service-location{font-size:1.1rem;color:rgba(255,255,255,0.88)}
+        .hero-buttons{display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center}
+        .btn{display:inline-block;padding:1.2rem 2.5rem;text-decoration:none;border:2px solid var(--color-primary);background:transparent;color:var(--color-primary);font-weight:600;letter-spacing:1px;text-transform:uppercase;min-width:200px;font-size:0.9rem}
+        .btn-primary{background:var(--color-primary);border-color:var(--color-primary);color:#fff;font-weight:700}
+        .btn-hero-large{font-size:1.25rem;padding:1rem 2.5rem;border-radius:12px}
+        @media (prefers-reduced-motion:reduce){.hero-bg-video{display:none}}
+        @media (max-width:768px){.nav-container{padding:0 1rem}.hero-section{padding:4rem 1.5rem 3rem}}
     </style>
 
     <!-- CSS Loading Strategy -->
@@ -244,6 +249,7 @@
                     <li><a href="{{ '/about/' | relative_url }}">About</a></li>
                     <li><a href="{{ '/leadership/' | relative_url }}">Leadership</a></li>
                     <li><a href="{{ '/what-we-believe/' | relative_url }}">Beliefs</a></li>
+                    <li><a href="{{ '/vision-and-values/' | relative_url }}">Vision & Values</a></li>
                     <li><a href="{{ '/give/' | relative_url }}">Give</a></li>
                 </ul>
             </div>
@@ -307,74 +313,6 @@
     {% else %}
     <!-- ServiceWorker disabled via _config.yml performance.enable_service_worker -->
     {% endif %}
-
-    <!-- Performance Monitoring & Core Web Vitals -->
-    <script>
-        // Performance timing and Core Web Vitals monitoring
-        window.addEventListener('load', function() {
-            if ('performance' in window) {
-                const perfData = performance.timing;
-                const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-                console.log('Page load time:', loadTime + 'ms');
-
-                // Core Web Vitals monitoring
-                if ('PerformanceObserver' in window) {
-                    // Largest Contentful Paint (LCP)
-                    new PerformanceObserver((entryList) => {
-                        const entries = entryList.getEntries();
-                        const lastEntry = entries[entries.length - 1];
-                        console.log('LCP:', Math.round(lastEntry.startTime), 'ms');
-                    }).observe({ entryTypes: ['largest-contentful-paint'] });
-
-                    // First Input Delay (FID)
-                    new PerformanceObserver((entryList) => {
-                        for (const entry of entryList.getEntries()) {
-                            console.log('FID:', Math.round(entry.processingStart - entry.startTime), 'ms');
-                        }
-                    }).observe({ entryTypes: ['first-input'] });
-
-                    // Cumulative Layout Shift (CLS)
-                    let clsValue = 0;
-                    new PerformanceObserver((entryList) => {
-                        for (const entry of entryList.getEntries()) {
-                            if (!entry.hadRecentInput) {
-                                clsValue += entry.value;
-                            }
-                        }
-                        console.log('CLS:', Math.round(clsValue * 1000) / 1000);
-                    }).observe({ entryTypes: ['layout-shift'] });
-
-                    // Time to First Byte (TTFB)
-                    const ttfb = perfData.responseStart - perfData.navigationStart;
-                    console.log('TTFB:', ttfb + 'ms');
-
-                    // DOM Content Loaded
-                    const dcl = perfData.domContentLoadedEventEnd - perfData.navigationStart;
-                    console.log('DOM Content Loaded:', dcl + 'ms');
-
-                    // Performance scoring for development
-                    const score = {
-                        loadTime: loadTime < 3000 ? '✅' : loadTime < 5000 ? '⚠️' : '❌',
-                        ttfb: ttfb < 200 ? '✅' : ttfb < 500 ? '⚠️' : '❌'
-                    };
-                    console.log('Performance Score:', score);
-                }
-            }
-        });
-
-        // Optional: Google Analytics 4 (GA4) Integration
-        // Uncomment and replace GA_MEASUREMENT_ID with your actual ID
-        /*
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
-            // Enhanced measurement for better Core Web Vitals tracking
-            custom_map: {'custom_parameter_1': 'lcp_value'},
-            send_page_view: true
-        });
-        */
-    </script>
 
     <!-- Mobile Navigation JavaScript -->
     <script>
