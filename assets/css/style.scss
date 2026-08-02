@@ -643,6 +643,87 @@ small {
     margin-bottom: 0.75rem;
 }
 
+/* Visit Form */
+.visit-form-section {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.visit-form-section h2 {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.visit-form {
+    max-width: 560px;
+}
+
+.visit-form .form-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
+.visit-form .form-row .form-group {
+    flex: 1;
+}
+
+.visit-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.visit-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+}
+
+.visit-form input,
+.visit-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.visit-form input:focus,
+.visit-form textarea:focus {
+    border-color: var(--color-primary-light);
+}
+
+.visit-form textarea {
+    resize: vertical;
+}
+
+.visit-form button[type="submit"] {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.visit-form button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.visit-form-status {
+    margin: 1rem 0 0;
+    font-weight: 600;
+}
+
+.visit-form-status--success {
+    color: var(--color-primary);
+}
+
+.visit-form-status--error {
+    color: #b91c1c;
+}
+
 /* Footer */
 .site-footer {
     background: #e9ecef;
@@ -911,6 +992,11 @@ small {
     .page-body h3 {
         font-size: 1.25rem;
         margin-top: 2rem;
+    }
+
+    .visit-form .form-row {
+        flex-direction: column;
+        gap: 0;
     }
 }
 
