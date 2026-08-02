@@ -125,7 +125,11 @@ The "Let Us Know You're Coming" form on the Plan Your Visit page uses [Web3Forms
 **One-time setup:**
 
 1. Go to [web3forms.com](https://web3forms.com) and enter the email address that should receive submissions. You'll get an Access Key by email.
-2. Paste that key into `_config.yml` under `forms: web3forms_access_key:`.
+2. Paste that key into `_config.yml`:
+   ```yaml
+   forms:
+     web3forms_access_key: "YOUR-ACCESS-KEY-HERE"
+   ```
 3. Commit and push — submissions will now email to that address.
 
 **To notify more than one person:** Web3Forms' free plan only delivers to a single email address (CC'ing multiple recipients is a paid feature). Instead, create a forwarding group with your email provider — e.g. a Google Workspace group `visits@aspchurch.com` that forwards to everyone who should see submissions — and use that group's address as the Web3Forms recipient. This keeps the recipient list editable in your email provider's admin console without touching the site.

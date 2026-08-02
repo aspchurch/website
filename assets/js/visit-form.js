@@ -2,6 +2,10 @@
   var form = document.getElementById('visit-form');
   if (!form) return;
 
+  // No fetch/FormData support: skip AJAX entirely and let the native form
+  // submission + hidden "redirect" field handle it.
+  if (!window.fetch || !window.FormData) return;
+
   var status = document.getElementById('visit-form-status');
 
   form.addEventListener('submit', function (event) {
