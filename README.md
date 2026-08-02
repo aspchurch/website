@@ -30,6 +30,7 @@ make serve
 | `_data/service.yml` | Service time, location, childcare info |
 | `_data/giving.yml` | Give page — giving link and text |
 | `_config.yml` (`church:` section) | Phone, email, Instagram, coordinates, Google Maps URL |
+| `_config.yml` (`forms:` section) | Web3Forms access key for the visit form |
 
 ### How to Edit on GitHub
 
@@ -74,7 +75,7 @@ online_giving:
 ### Do Not Edit
 - Files in `_layouts/` or ending in `.html`
 - Lines starting with `{%`, `{{`, or `<`
-- `_config.yml` — **except** the `church:` section (phone, email, Instagram, coordinates, Google Maps URL), which is safe to update
+- `_config.yml` — **except** the `church:` and `forms:` sections (contact info and the Web3Forms access key), which are safe to update
 
 ---
 
@@ -85,8 +86,8 @@ online_giving:
 ├── _data/             # ✅ Page content (edit these)
 ├── _pages/            # Page templates (Markdown + YAML data)
 ├── _layouts/          # Site-wide HTML templates
-├── _sass/             # Stylesheets
-├── assets/            # Images, compiled CSS
+├── _sass/             # Partial stylesheets (imported into assets/css/style.scss)
+├── assets/            # Images, CSS (assets/css/style.scss), JS
 ├── _config.yml        # Site configuration
 └── index.html         # Homepage
 ```
@@ -117,6 +118,22 @@ To enable the remaining features for a production-optimized local build, set the
 
 ---
 
+### Visit Form Setup (Web3Forms)
+
+The "Let Us Know You're Coming" form on the Plan Your Visit page uses [Web3Forms](https://web3forms.com) — a free service that emails form submissions without needing a server (GitHub Pages can't run backend code).
+
+**One-time setup:**
+
+1. Go to [web3forms.com](https://web3forms.com) and enter the email address that should receive submissions. You'll get an Access Key by email.
+2. Paste that key into `_config.yml` under `forms: web3forms_access_key:`.
+3. Commit and push — submissions will now email to that address.
+
+**To notify more than one person:** Web3Forms' free plan only delivers to a single email address (CC'ing multiple recipients is a paid feature). Instead, create a forwarding group with your email provider — e.g. a Google Workspace group `visits@aspchurch.com` that forwards to everyone who should see submissions — and use that group's address as the Web3Forms recipient. This keeps the recipient list editable in your email provider's admin console without touching the site.
+
+The access key is public by design (it's visible in the page source) — Web3Forms rate-limits and honeypot-protects submissions on their end, so this is expected and not a secret to protect.
+
+---
+
 ## Deployment
 
 The site deploys automatically when changes are pushed to `main`:
@@ -130,12 +147,14 @@ git push origin main
 
 ### Sitemap & Search Console
 
-The sitemap is auto-generated at `https://www.aspchurch.com/sitemap.xml`.
-
-To submit or re-submit after major changes:
+The sitemap is auto-generated at `https://www.aspchurch.com/sitemap.xml` (via the `jekyll-sitemap` plugin). Routine content edits don't need manual resubmission — Search Console already has the sitemap URL on file and recrawls it on its own schedule. Resubmitting is only useful the first time you register a sitemap, or to nudge a faster recrawl after a big structural change:
 1. Go to [Google Search Console](https://search.google.com/search-console)
 2. Select the `www.aspchurch.com` property
 3. Navigate to **Sitemaps** → enter `sitemap.xml` → **Submit**
+
+To pull a single updated page into Google's index faster than waiting on its normal crawl cadence, use **URL Inspection** → paste the page URL → **Request Indexing** instead.
+
+**Excluding a page from the sitemap:** add `sitemap: false` to its front matter. Do this for any utility page that's also `robots: noindex` (e.g. `_pages/visit-thank-you.md`) — a `noindex` page listed in the sitemap shows up as a warning in Search Console.
 
 ---
 
@@ -162,4 +181,4 @@ To submit or re-submit after major changes:
 
 ---
 
-*Last updated: April 2026*
+*Last updated: August 2026*
