@@ -18,6 +18,16 @@ church:
   lng: -117.2872516
   google_maps_url: "https://www.google.com/maps/place/All+Saints+Presbyterian+Church/@33.1131188,-117.2872516,17z/data=!3m1!4b1!4m6!3m5!1s0x80dc73c2a9c0054b:0x3deed9dbd5072620!8m2!3d33.1131188!4d-117.2872516!16s%2Fg%2F11z0vbw63z"
 
+# "Let Us Know You're Coming" visit form (Plan Your Visit page)
+# Powered by Web3Forms (https://web3forms.com) — a free, no-backend form service.
+# 1. Get an access key by submitting your email at https://web3forms.com
+# 2. Paste it below. The key is public (it ships in the page HTML) — that's expected.
+# 3. Submissions email to whatever address owns that access key. To notify multiple
+#    people, point it at a forwarding group (e.g. visits@aspchurch.com) instead of a
+#    single inbox — see README.md for details.
+forms:
+  web3forms_access_key: 3023444e-56ac-4a05-97a2-74c8b46f5d74
+
 # Performance & Optimization Settings
 # Set to false during development, true for production
 performance:
@@ -30,6 +40,13 @@ performance:
 markdown: kramdown
 highlighter: rouge
 permalink: pretty
+
+# No layout on this site renders `page.excerpt`, but Jekyll still computes one for
+# every page at build time. The default separator ("\n\n", a blank line) can land
+# mid-Liquid-block on pages built from {% for %} loops (e.g. leadership.md), which
+# triggers a "Excerpt modified" warning. Point it at a marker that never appears in
+# content so no cut point is ever found.
+excerpt_separator: "<!--more-->"
 
 # Collections
 collections:
